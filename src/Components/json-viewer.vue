@@ -8,7 +8,7 @@
             </span>
         </div>
         <div class="jv-code" :class="{ open: expandCode, boxed }">
-            <json-box ref="jsonBox" :value="parseValue" :sort="sort" :preview-mode="previewMode" @expand="$emit('expand', $event)" @collapse="$emit('collapse', $event)" />
+            <json-box ref="jsonBox" :value="parseValue" :sort="sort" :preview-mode="previewMode" @expand="(e) => console.log('expand', e)" @collapse="$emit('collapse', $event)" />
         </div>
         <div v-if="expandableCode && boxed" class="jv-more" @click="toggleExpandCode">
             <span class="jv-toggle" :class="{ open: !!expandCode }" />

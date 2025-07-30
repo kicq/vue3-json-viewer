@@ -484,20 +484,20 @@ function Ve() {
                   }, l = "";
                   return typeof i == "string" ? l = U(i, a) : i instanceof HTMLInputElement && !["text", "search", "url", "tel", "password"].includes(i == null ? void 0 : i.type) ? l = U(i.value, a) : (l = E()(i), g("copy")), l;
                 }, D = W;
-                function M(p) {
+                function $(p) {
                   "@babel/helpers - typeof";
-                  return typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? M = function(a) {
+                  return typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? $ = function(a) {
                     return typeof a;
-                  } : M = function(a) {
+                  } : $ = function(a) {
                     return a && typeof Symbol == "function" && a.constructor === Symbol && a !== Symbol.prototype ? "symbol" : typeof a;
-                  }, M(p);
+                  }, $(p);
                 }
                 var ee = function() {
                   var i = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, a = i.action, l = a === void 0 ? "copy" : a, d = i.container, m = i.target, T = i.text;
                   if (l !== "copy" && l !== "cut")
                     throw new Error('Invalid "action" value, use either "copy" or "cut"');
                   if (m !== void 0)
-                    if (m && M(m) === "object" && m.nodeType === 1) {
+                    if (m && $(m) === "object" && m.nodeType === 1) {
                       if (l === "copy" && m.hasAttribute("disabled"))
                         throw new Error('Invalid "target" attribute. Please use "readonly" instead of "disabled" attribute');
                       if (l === "cut" && (m.hasAttribute("readonly") || m.hasAttribute("disabled")))
@@ -513,13 +513,13 @@ function Ve() {
                       container: d
                     });
                 }, te = ee;
-                function $(p) {
+                function M(p) {
                   "@babel/helpers - typeof";
-                  return typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? $ = function(a) {
+                  return typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? M = function(a) {
                     return typeof a;
-                  } : $ = function(a) {
+                  } : M = function(a) {
                     return a && typeof Symbol == "function" && a.constructor === Symbol && a !== Symbol.prototype ? "symbol" : typeof a;
-                  }, $(p);
+                  }, M(p);
                 }
                 function ne(p, i) {
                   if (!(p instanceof i))
@@ -557,7 +557,7 @@ function Ve() {
                   };
                 }
                 function ie(p, i) {
-                  return i && ($(i) === "object" || typeof i == "function") ? i : ue(p);
+                  return i && (M(i) === "object" || typeof i == "function") ? i : ue(p);
                 }
                 function ue(p) {
                   if (p === void 0)
@@ -595,7 +595,7 @@ function Ve() {
                     key: "resolveOptions",
                     value: function() {
                       var d = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
-                      this.action = typeof d.action == "function" ? d.action : this.defaultAction, this.target = typeof d.target == "function" ? d.target : this.defaultTarget, this.text = typeof d.text == "function" ? d.text : this.defaultText, this.container = $(d.container) === "object" ? d.container : document.body;
+                      this.action = typeof d.action == "function" ? d.action : this.defaultAction, this.target = typeof d.target == "function" ? d.target : this.defaultTarget, this.text = typeof d.text == "function" ? d.text : this.defaultText, this.container = M(d.container) === "object" ? d.container : document.body;
                     }
                     /**
                      * Adds a click event listener to the passed trigger.
@@ -919,8 +919,8 @@ function Ve() {
     });
   }(L)), L.exports;
 }
-var $e = Ve();
-const Me = /* @__PURE__ */ Ae($e), Re = function(e, y) {
+var Me = Ve();
+const $e = /* @__PURE__ */ Ae(Me), Re = function(e, y) {
   let c = Date.now(), v;
   return (...s) => {
     Date.now() - c < y && v && clearTimeout(v), v = setTimeout(() => {
@@ -1019,7 +1019,7 @@ const Me = /* @__PURE__ */ Ae($e), Re = function(e, y) {
     return J(() => e.value, () => {
       f();
     }), H(() => {
-      e.boxed && o.value && (f(), o.value.$el.addEventListener("resized", f, !0)), e.copyable && u.value && new Me(u.value, {
+      e.boxed && o.value && (f(), o.value.$el.addEventListener("resized", f, !0)), e.copyable && u.value && new $e(u.value, {
         text: () => JSON.stringify(r.value, null, 2)
         // Use parseValue for copying
       }).on("success", E);
@@ -1071,7 +1071,7 @@ function De(e, y, c, v, s, u) {
         value: e.parseValue,
         sort: e.sort,
         "preview-mode": e.previewMode,
-        onExpand: y[0] || (y[0] = (t) => e.$emit("expand", t)),
+        onExpand: y[0] || (y[0] = (t) => console.log("expand", t)),
         onCollapse: y[1] || (y[1] = (t) => e.$emit("collapse", t))
       }, null, 8, ["value", "sort", "preview-mode"])
     ], 2),
