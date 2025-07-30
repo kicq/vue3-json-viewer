@@ -97,7 +97,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
   setup(e) {
     return (m, c) => (A(), N("span", je, V(e.jsonValue.toString()), 1));
   }
-}), _e = C({
+}), Ee = C({
   name: "JsonObject",
   props: {
     /** The object value to render. */
@@ -184,7 +184,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
       } }, n);
     };
   }
-}), Ee = C({
+}), _e = C({
   name: "JsonArray",
   props: {
     /** The array value to render. */
@@ -354,11 +354,11 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
     const o = () => {
       console.log("Toggle called for:", e.keyName, "Current expand state:", s.value), s.value = !s.value;
       const t = s.value ? "expand" : "collapse";
-      if (m.emit(t, {
+      if (console.log("Emitting", t), m.emit(t, {
         keyName: e.keyName,
         value: e.value,
         depth: e.depth
-      }), u)
+      }), console.log("Emitting2", t), u)
         try {
           u.dispatchEvent(new Event("resized"));
         } catch {
@@ -369,7 +369,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
     return () => {
       const t = [];
       let n;
-      e.value === null || e.value === void 0 ? n = ge : Array.isArray(e.value) ? n = Ee : e.value instanceof Date ? n = Ce : e.value instanceof RegExp ? n = Ne : typeof e.value == "object" ? n = _e : typeof e.value == "number" ? n = be : typeof e.value == "string" ? n = G : typeof e.value == "boolean" ? n = xe : typeof e.value == "function" ? n = Te : n = G;
+      e.value === null || e.value === void 0 ? n = ge : Array.isArray(e.value) ? n = _e : e.value instanceof Date ? n = Ce : e.value instanceof RegExp ? n = Ne : typeof e.value == "object" ? n = Ee : typeof e.value == "number" ? n = be : typeof e.value == "string" ? n = G : typeof e.value == "boolean" ? n = xe : typeof e.value == "function" ? n = Te : n = G;
       const r = e.value && (Array.isArray(e.value) || typeof e.value == "object" && !(e.value instanceof Date) && // Exclude Date
       !(e.value instanceof RegExp));
       return !e.previewMode && r && !(e.value instanceof RegExp) && t.push(
@@ -461,7 +461,7 @@ function Ve() {
                     );
                   }
                 });
-                var n = t(279), r = /* @__PURE__ */ t.n(n), f = t(370), j = /* @__PURE__ */ t.n(f), _ = t(817), E = /* @__PURE__ */ t.n(_);
+                var n = t(279), r = /* @__PURE__ */ t.n(n), f = t(370), j = /* @__PURE__ */ t.n(f), E = t(817), _ = /* @__PURE__ */ t.n(E);
                 function g(v) {
                   try {
                     return document.execCommand(v);
@@ -470,7 +470,7 @@ function Ve() {
                   }
                 }
                 var x = function(i) {
-                  var a = E()(i);
+                  var a = _()(i);
                   return g("cut"), a;
                 }, d = x;
                 function S(v) {
@@ -482,13 +482,13 @@ function Ve() {
                 var U = function(i, a) {
                   var l = S(i);
                   a.container.appendChild(l);
-                  var p = E()(l);
+                  var p = _()(l);
                   return g("copy"), l.remove(), p;
                 }, W = function(i) {
                   var a = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {
                     container: document.body
                   }, l = "";
-                  return typeof i == "string" ? l = U(i, a) : i instanceof HTMLInputElement && !["text", "search", "url", "tel", "password"].includes(i == null ? void 0 : i.type) ? l = U(i.value, a) : (l = E()(i), g("copy")), l;
+                  return typeof i == "string" ? l = U(i, a) : i instanceof HTMLInputElement && !["text", "search", "url", "tel", "password"].includes(i == null ? void 0 : i.type) ? l = U(i.value, a) : (l = _()(i), g("copy")), l;
                 }, D = W;
                 function $(v) {
                   "@babel/helpers - typeof";
@@ -739,22 +739,22 @@ function Ve() {
               /***/
               function(u, o, t) {
                 var n = t(828);
-                function r(_, E, g, x, d) {
+                function r(E, _, g, x, d) {
                   var S = j.apply(this, arguments);
-                  return _.addEventListener(g, S, d), {
+                  return E.addEventListener(g, S, d), {
                     destroy: function() {
-                      _.removeEventListener(g, S, d);
+                      E.removeEventListener(g, S, d);
                     }
                   };
                 }
-                function f(_, E, g, x, d) {
-                  return typeof _.addEventListener == "function" ? r.apply(null, arguments) : typeof g == "function" ? r.bind(null, document).apply(null, arguments) : (typeof _ == "string" && (_ = document.querySelectorAll(_)), Array.prototype.map.call(_, function(S) {
-                    return r(S, E, g, x, d);
+                function f(E, _, g, x, d) {
+                  return typeof E.addEventListener == "function" ? r.apply(null, arguments) : typeof g == "function" ? r.bind(null, document).apply(null, arguments) : (typeof E == "string" && (E = document.querySelectorAll(E)), Array.prototype.map.call(E, function(S) {
+                    return r(S, _, g, x, d);
                   }));
                 }
-                function j(_, E, g, x) {
+                function j(E, _, g, x) {
                   return function(d) {
-                    d.delegateTarget = n(d.target, E), d.delegateTarget && x.call(_, d);
+                    d.delegateTarget = n(d.target, _), d.delegateTarget && x.call(E, d);
                   };
                 }
                 u.exports = f;
@@ -792,9 +792,9 @@ function Ve() {
                   if (n.node(g))
                     return j(g, x, d);
                   if (n.nodeList(g))
-                    return _(g, x, d);
-                  if (n.string(g))
                     return E(g, x, d);
+                  if (n.string(g))
+                    return _(g, x, d);
                   throw new TypeError("First argument must be a String, HTMLElement, HTMLCollection, or NodeList");
                 }
                 function j(g, x, d) {
@@ -804,7 +804,7 @@ function Ve() {
                     }
                   };
                 }
-                function _(g, x, d) {
+                function E(g, x, d) {
                   return Array.prototype.forEach.call(g, function(S) {
                     S.addEventListener(x, d);
                   }), {
@@ -815,7 +815,7 @@ function Ve() {
                     }
                   };
                 }
-                function E(g, x, d) {
+                function _(g, x, d) {
                   return r(document.body, g, x, d);
                 }
                 u.exports = f;
@@ -872,8 +872,8 @@ function Ve() {
                   off: function(t, n) {
                     var r = this.e || (this.e = {}), f = r[t], j = [];
                     if (f && n)
-                      for (var _ = 0, E = f.length; _ < E; _++)
-                        f[_].fn !== n && f[_].fn._ !== n && j.push(f[_]);
+                      for (var E = 0, _ = f.length; E < _; E++)
+                        f[E].fn !== n && f[E].fn._ !== n && j.push(f[E]);
                     return j.length ? r[t] = j : delete r[t], this;
                   }
                 }, u.exports = o, u.exports.TinyEmitter = o;
@@ -1012,8 +1012,8 @@ const $e = /* @__PURE__ */ Ae(Me), Re = function(e, m) {
         return e.value;
       }
     }), j = () => {
-      E();
-    }, E = Re(() => {
+      _();
+    }, _ = Re(() => {
       fe(() => {
         o.value && (o.value.$el.clientHeight >= 250 ? y.value = !0 : y.value = !1);
       });

@@ -92,11 +92,13 @@ export default defineComponent({
           expand.value = !expand.value;
           // $emit Vue-событие для раскрытия/скрытия
           const eventName = expand.value ? "expand" : "collapse";
+          console.log("Emitting", eventName);
           ctx.emit(eventName, {
               keyName: props.keyName,
               value: props.value,
               depth: props.depth
           });
+          console.log("Emitting2", eventName);
 
 
           if (currentEl) {
