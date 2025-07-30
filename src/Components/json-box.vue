@@ -45,7 +45,7 @@ export default defineComponent({
    * Setup function for the JsonBox component.
    * @param props - The component's props.
    */
-  setup(props) {
+  setup(props, ctx) {
     /** Injected from JsonViewer: The maximum depth to auto-expand. */
     const expandDepth = inject<number>("expandDepth", Infinity);
     /** Injected from JsonViewer: Function to call when a key is clicked. */
@@ -66,19 +66,42 @@ export default defineComponent({
      * Also dispatches a 'resized' event to notify parent components (like JsonViewer)
      * that content size might have changed, useful for recalculating layout or visibility.
      */
-    const toggle = () => {
-      expand.value = !expand.value;
-      if (currentEl) {
-        try {
-          currentEl.dispatchEvent(new Event("resized"));
-        } catch (e) {
-          // Fallback for older browsers (IE) that don't support new Event()
-          const evt = document.createEvent("Event");
-          evt.initEvent("resized", true, false);
-          currentEl.dispatchEvent(evt);
-        }
-      }
-    };
+    // const toggle = () => {
+    //   expand.value = !expand.value;
+    //   if (currentEl) {
+    //     try {
+    //       currentEl.dispatchEvent(new Event("resized"));
+    //     } catch (e) {
+    //       // Fallback for older browsers (IE) that don't support new Event()
+    //       const evt = document.createEvent("Event");
+    //       evt.initEvent("resized", true, false);
+    //       currentEl.dispatchEvent(evt);
+    //     }
+    //   }
+
+    // };
+      // ...existing code...
+      const toggle = () => {
+          expand.value = !expand.value;
+          // $emit Vue-событие для раскрытия/скрытия
+          const eventName = expand.value ? "expand" : "collapse";
+          ctx.emit(eventName, {
+              keyName: props.keyName,
+              value: props.value,
+              depth: props.depth
+          });
+
+          if (currentEl) {
+              try {
+                  currentEl.dispatchEvent(new Event("resized"));
+              } catch (e) {
+                  const evt = document.createEvent("Event");
+                  evt.initEvent("resized", true, false);
+                  currentEl.dispatchEvent(evt);
+              }
+          }
+      };
+      // ...existing code...
 
     /**
      * The render function for JsonBox.
