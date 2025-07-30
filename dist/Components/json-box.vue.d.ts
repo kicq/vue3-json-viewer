@@ -26,7 +26,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     previewMode: BooleanConstructor;
 }>, () => VNode<import('vue').RendererNode, import('vue').RendererElement, {
     [key: string]: any;
-}>, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+}>, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, ("expand" | "collapse")[], "expand" | "collapse", import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     /** The JSON value to render. Can be any valid JSON type. */
     value: {
         type: PropType<any>;
@@ -46,7 +46,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     };
     /** Whether preview mode is enabled. Passed down from JsonViewer. */
     previewMode: BooleanConstructor;
-}>> & Readonly<{}>, {
+}>> & Readonly<{
+    onExpand?: ((...args: any[]) => any) | undefined;
+    onCollapse?: ((...args: any[]) => any) | undefined;
+}>, {
     sort: boolean;
     previewMode: boolean;
     keyName: string;

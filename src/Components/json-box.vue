@@ -41,6 +41,12 @@ export default defineComponent({
     /** Whether preview mode is enabled. Passed down from JsonViewer. */
     previewMode: Boolean,
   },
+  emits: [
+    /** Event emitted when the component is expanded. */
+    "expand",
+    /** Event emitted when the component is collapsed. */
+    "collapse",
+  ],
   /**
    * Setup function for the JsonBox component.
    * @param props - The component's props.
@@ -91,6 +97,7 @@ export default defineComponent({
               value: props.value,
               depth: props.depth
           });
+
 
           if (currentEl) {
               try {

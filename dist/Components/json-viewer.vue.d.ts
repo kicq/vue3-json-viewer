@@ -113,7 +113,7 @@ declare const _default: import('vue').DefineComponent<{
         previewMode: BooleanConstructor;
     }>, () => import('vue').VNode<import('vue').RendererNode, import('vue').RendererElement, {
         [key: string]: any;
-    }>, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+    }>, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, ("expand" | "collapse")[], "expand" | "collapse", import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
         value: {
             type: PropType<any>;
             default: null;
@@ -128,7 +128,10 @@ declare const _default: import('vue').DefineComponent<{
             default: number;
         };
         previewMode: BooleanConstructor;
-    }>> & Readonly<{}>, {
+    }>> & Readonly<{
+        onExpand?: ((...args: any[]) => any) | undefined;
+        onCollapse?: ((...args: any[]) => any) | undefined;
+    }>, {
         sort: boolean;
         previewMode: boolean;
         keyName: string;

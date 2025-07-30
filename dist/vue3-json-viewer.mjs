@@ -334,6 +334,12 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
     /** Whether preview mode is enabled. Passed down from JsonViewer. */
     previewMode: Boolean
   },
+  emits: [
+    /** Event emitted when the component is expanded. */
+    "expand",
+    /** Event emitted when the component is collapsed. */
+    "collapse"
+  ],
   /**
    * Setup function for the JsonBox component.
    * @param props - The component's props.
@@ -1071,14 +1077,14 @@ function De(e, y, c, v, s, u) {
         value: e.parseValue,
         sort: e.sort,
         "preview-mode": e.previewMode,
-        onExpand: y[0] || (y[0] = (t) => console.log("expand", t)),
-        onCollapse: y[1] || (y[1] = (t) => e.$emit("collapse", t))
-      }, null, 8, ["value", "sort", "preview-mode"])
+        onExpand: e.onExpand,
+        onCollapse: y[0] || (y[0] = (t) => e.$emit("collapse", t))
+      }, null, 8, ["value", "sort", "preview-mode", "onExpand"])
     ], 2),
     e.expandableCode && e.boxed ? (A(), N("div", {
       key: 1,
       class: "jv-more",
-      onClick: y[2] || (y[2] = (...t) => e.toggleExpandCode && e.toggleExpandCode(...t))
+      onClick: y[1] || (y[1] = (...t) => e.toggleExpandCode && e.toggleExpandCode(...t))
     }, [
       q("span", {
         class: k(["jv-toggle", { open: !!e.expandCode }])
