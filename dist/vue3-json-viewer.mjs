@@ -1,4 +1,4 @@
-import { defineComponent as C, ref as w, onMounted as H, h as j, computed as O, createElementBlock as N, openBlock as A, normalizeClass as k, toDisplayString as V, watch as J, inject as F, provide as I, nextTick as fe, resolveComponent as de, createCommentVNode as Z, createElementVNode as q, renderSlot as pe, createTextVNode as ve, createVNode as ye } from "vue";
+import { defineComponent as C, ref as w, onMounted as H, h as b, computed as O, createElementBlock as N, openBlock as A, normalizeClass as k, toDisplayString as V, watch as J, inject as F, provide as I, nextTick as fe, resolveComponent as de, createCommentVNode as Z, createElementVNode as q, renderSlot as pe, createTextVNode as ve, createVNode as ye } from "vue";
 const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)+([A-Za-z0-9-~\/])+$/, G = C({
   name: "JsonString",
   props: {
@@ -13,40 +13,40 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
    * @param props - The component's props.
    */
   setup(e) {
-    const y = w(!0), c = w(!1), v = w(null), s = w(null);
+    const m = w(!0), c = w(!1), y = w(null), s = w(null);
     H(() => {
-      v.value && s.value && v.value.offsetHeight > s.value.offsetHeight && (c.value = !0);
+      y.value && s.value && y.value.offsetHeight > s.value.offsetHeight && (c.value = !0);
     });
     const u = () => {
-      y.value = !y.value;
+      m.value = !m.value;
     };
     return () => {
       const o = e.jsonValue, t = me.test(o);
       let n;
-      !y.value && c.value ? n = j("span", {
+      !m.value && c.value ? n = b("span", {
         class: { "jv-ellipsis": !0 },
         onClick: u
-      }, "...") : t ? n = j("span", { class: { "jv-item": !0, "jv-string": !0 }, ref: v }, [
-        j("span", null, '"'),
+      }, "...") : t ? n = b("span", { class: { "jv-item": !0, "jv-string": !0 }, ref: y }, [
+        b("span", null, '"'),
         // Opening quote
-        j("a", { href: o, target: "_blank", class: "jv-link" }, o),
-        j("span", null, '"')
+        b("a", { href: o, target: "_blank", class: "jv-link" }, o),
+        b("span", null, '"')
         // Closing quote
-      ]) : n = j("span", {
+      ]) : n = b("span", {
         class: { "jv-item": !0, "jv-string": !0 },
-        ref: v
+        ref: y
         // Assign ref for height calculation
       }, `"${o}"`);
       const r = [];
-      return c.value && r.push(j("span", {
+      return c.value && r.push(b("span", {
         class: {
           "jv-toggle": !0,
           // CSS class for the toggle button
-          open: y.value
+          open: m.value
           // Class to indicate open/closed state
         },
         onClick: u
-      })), r.push(j("span", { class: { "jv-holder-node": !0 }, ref: s })), r.push(n), j("span", {}, r);
+      })), r.push(b("span", { class: { "jv-holder-node": !0 }, ref: s })), r.push(n), b("span", {}, r);
     };
   }
 }), he = {
@@ -65,8 +65,8 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
     }
   },
   setup(e) {
-    const y = e, c = O(() => y.jsonValue === null ? "null" : "undefined");
-    return (v, s) => (A(), N("span", he, V(c.value), 1));
+    const m = e, c = O(() => m.jsonValue === null ? "null" : "undefined");
+    return (y, s) => (A(), N("span", he, V(c.value), 1));
   }
 }), be = /* @__PURE__ */ C({
   __name: "json-number",
@@ -78,8 +78,8 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
     }
   },
   setup(e) {
-    const y = e, c = O(() => Number.isInteger(y.jsonValue));
-    return (v, s) => (A(), N("span", {
+    const m = e, c = O(() => Number.isInteger(m.jsonValue));
+    return (y, s) => (A(), N("span", {
       class: k(["jv-item", "jv-number", c.value ? "jv-number-integer" : "jv-number-float"])
     }, V(e.jsonValue.toString()), 3));
   }
@@ -95,7 +95,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
     }
   },
   setup(e) {
-    return (y, c) => (A(), N("span", je, V(e.jsonValue.toString()), 1));
+    return (m, c) => (A(), N("span", je, V(e.jsonValue.toString()), 1));
   }
 }), _e = C({
   name: "JsonObject",
@@ -128,9 +128,9 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
    * @param props - The component's props.
    * @param context - The setup context, including `emit`.
    */
-  setup(e, { emit: y }) {
+  setup(e, { emit: m }) {
     const c = w({});
-    let v = null;
+    let y = null;
     const s = (n) => {
       setTimeout(() => {
         c.value = n;
@@ -147,23 +147,23 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
         r[f] = c.value[f];
       }), r;
     }), o = () => {
-      if (v)
+      if (y)
         try {
-          v.dispatchEvent(new Event("resized"));
+          y.dispatchEvent(new Event("resized"));
         } catch {
           const r = document.createEvent("Event");
-          r.initEvent("resized", !0, !1), v.dispatchEvent(r);
+          r.initEvent("resized", !0, !1), y.dispatchEvent(r);
         }
     }, t = () => {
-      y("update:expand", !e.expand), o();
+      m("update:expand", !e.expand), o();
     };
     return () => {
       const n = [];
-      if (n.push(j("span", { class: ["jv-item", "jv-object"] }, "{")), e.expand) {
+      if (n.push(b("span", { class: ["jv-item", "jv-object"] }, "{")), e.expand) {
         for (const r in u.value)
           if (u.value.hasOwnProperty(r)) {
             const f = u.value[r];
-            n.push(j(K, {
+            n.push(b(K, {
               key: r,
               // style: { display: !props.expand ? 'none' : undefined }, // Redundant
               sort: e.sort,
@@ -174,13 +174,13 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
             }));
           }
       }
-      return !e.expand && Object.keys(c.value).length > 0 && n.push(j("span", {
+      return !e.expand && Object.keys(c.value).length > 0 && n.push(b("span", {
         // style: { display: props.expand ? 'none' : undefined }, // Redundant
         class: "jv-ellipsis",
         onClick: t,
         title: `click to reveal object content (keys: ${Object.keys(u.value).join(", ")})`
-      }, "...")), n.push(j("span", { class: ["jv-item", "jv-object"] }, "}")), j("span", { ref: (r) => {
-        v = r;
+      }, "...")), n.push(b("span", { class: ["jv-item", "jv-object"] }, "}")), b("span", { ref: (r) => {
+        y = r;
       } }, n);
     };
   }
@@ -216,9 +216,9 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
    * @param props - The component's props.
    * @param context - The setup context, including `emit`.
    */
-  setup(e, { emit: y }) {
+  setup(e, { emit: m }) {
     const c = w([]);
-    let v = null;
+    let y = null;
     const s = (o, t = 0) => {
       t === 0 && (c.value = []), setTimeout(() => {
         o && o.length > t && (c.value.push(o[t]), s(o, t + 1));
@@ -228,26 +228,26 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
       s(o);
     }, { immediate: !0, deep: !0 });
     const u = () => {
-      if (y("update:expand", !e.expand), v)
+      if (m("update:expand", !e.expand), y)
         try {
-          v.dispatchEvent(new Event("resized"));
+          y.dispatchEvent(new Event("resized"));
         } catch {
           const t = document.createEvent("Event");
-          t.initEvent("resized", !0, !1), v.dispatchEvent(t);
+          t.initEvent("resized", !0, !1), y.dispatchEvent(t);
         }
     };
     return () => {
       const o = [];
-      return !e.previewMode && !e.keyName && o.push(j("span", {
+      return !e.previewMode && !e.keyName && o.push(b("span", {
         class: {
           "jv-toggle": !0,
           open: !!e.expand
         },
         onClick: u
-      })), o.push(j("span", {
+      })), o.push(b("span", {
         class: ["jv-item", "jv-array"]
       }, "[")), e.expand && c.value.forEach((t, n) => {
-        o.push(j(K, {
+        o.push(b(K, {
           // Cast JsonBox to Component
           key: n,
           // style: { display: props.expand ? undefined : 'none' }, // This style is redundant if items are not rendered
@@ -256,14 +256,14 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
           value: t,
           previewMode: e.previewMode
         }));
-      }), !e.expand && c.value.length > 0 && o.push(j("span", {
+      }), !e.expand && c.value.length > 0 && o.push(b("span", {
         class: "jv-ellipsis",
         onClick: u,
         title: `click to reveal ${c.value.length} hidden items`
-      }, "...")), o.push(j("span", {
+      }, "...")), o.push(b("span", {
         class: ["jv-item", "jv-array"]
-      }, "]")), j("span", { ref: (t) => {
-        v = t;
+      }, "]")), b("span", { ref: (t) => {
+        y = t;
       } }, o);
     };
   }
@@ -277,7 +277,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
     }
   },
   setup(e) {
-    return (y, c) => (A(), N("span", {
+    return (m, c) => (A(), N("span", {
       class: k(["jv-item", "jv-function"]),
       title: e.jsonValue.toString()
     }, " <function> ", 8, we));
@@ -294,8 +294,8 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
     }
   },
   setup(e) {
-    const y = e, c = F("timeformat", (s) => s.toLocaleString()), v = O(() => c(y.jsonValue));
-    return (s, u) => (A(), N("span", ke, ' "' + V(v.value) + '" ', 1));
+    const m = e, c = F("timeformat", (s) => s.toLocaleString()), y = O(() => c(m.jsonValue));
+    return (s, u) => (A(), N("span", ke, ' "' + V(y.value) + '" ', 1));
   }
 }), Se = {
   class: /* @__PURE__ */ k(["jv-item", "jv-regexp"])
@@ -309,7 +309,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
     }
   },
   setup(e) {
-    return (y, c) => (A(), N("span", Se, V(e.jsonValue.toString()), 1));
+    return (m, c) => (A(), N("span", Se, V(e.jsonValue.toString()), 1));
   }
 }), K = C({
   name: "JsonBox",
@@ -344,8 +344,8 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
    * Setup function for the JsonBox component.
    * @param props - The component's props.
    */
-  setup(e, y) {
-    const c = F("expandDepth", 1 / 0), v = F("keyClick", () => {
+  setup(e, m) {
+    const c = F("expandDepth", 1 / 0), y = F("keyClick", () => {
     }), s = w(!0);
     let u = null;
     H(() => {
@@ -354,7 +354,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
     const o = () => {
       console.log("Toggle called for:", e.keyName, "Current expand state:", s.value), s.value = !s.value;
       const t = s.value ? "expand" : "collapse";
-      if (y.emit(t, {
+      if (m.emit(t, {
         keyName: e.keyName,
         value: e.value,
         depth: e.depth
@@ -373,7 +373,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
       const r = e.value && (Array.isArray(e.value) || typeof e.value == "object" && !(e.value instanceof Date) && // Exclude Date
       !(e.value instanceof RegExp));
       return !e.previewMode && r && !(e.value instanceof RegExp) && t.push(
-        j("span", {
+        b("span", {
           class: {
             "jv-toggle": !0,
             open: !!s.value
@@ -382,16 +382,16 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
           onClick: o
         })
       ), e.keyName && t.push(
-        j("span", {
+        b("span", {
           class: "jv-key",
           // 'jv-key' is a string, not an object
           onClick: () => {
-            v && v(e.keyName);
+            y && y(e.keyName);
           }
         }, `${e.keyName}:`)
         // Text content as children
       ), t.push(
-        j(n, {
+        b(n, {
           class: "jv-push",
           // 'jv-push' is a string
           jsonValue: e.value,
@@ -410,7 +410,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
             s.value = f;
           }
         })
-      ), j(
+      ), b(
         "div",
         {
           class: {
@@ -441,8 +441,8 @@ var L = { exports: {} };
  */
 var Oe = L.exports, X;
 function Ve() {
-  return X || (X = 1, function(e, y) {
-    (function(v, s) {
+  return X || (X = 1, function(e, m) {
+    (function(y, s) {
       e.exports = s();
     })(Oe, function() {
       return (
@@ -461,114 +461,114 @@ function Ve() {
                     );
                   }
                 });
-                var n = t(279), r = /* @__PURE__ */ t.n(n), f = t(370), _ = /* @__PURE__ */ t.n(f), x = t(817), E = /* @__PURE__ */ t.n(x);
-                function g(p) {
+                var n = t(279), r = /* @__PURE__ */ t.n(n), f = t(370), j = /* @__PURE__ */ t.n(f), _ = t(817), E = /* @__PURE__ */ t.n(_);
+                function g(v) {
                   try {
-                    return document.execCommand(p);
+                    return document.execCommand(v);
                   } catch {
                     return !1;
                   }
                 }
-                var h = function(i) {
+                var x = function(i) {
                   var a = E()(i);
                   return g("cut"), a;
-                }, b = h;
-                function S(p) {
+                }, d = x;
+                function S(v) {
                   var i = document.documentElement.getAttribute("dir") === "rtl", a = document.createElement("textarea");
                   a.style.fontSize = "12pt", a.style.border = "0", a.style.padding = "0", a.style.margin = "0", a.style.position = "absolute", a.style[i ? "right" : "left"] = "-9999px";
                   var l = window.pageYOffset || document.documentElement.scrollTop;
-                  return a.style.top = "".concat(l, "px"), a.setAttribute("readonly", ""), a.value = p, a;
+                  return a.style.top = "".concat(l, "px"), a.setAttribute("readonly", ""), a.value = v, a;
                 }
                 var U = function(i, a) {
                   var l = S(i);
                   a.container.appendChild(l);
-                  var d = E()(l);
-                  return g("copy"), l.remove(), d;
+                  var p = E()(l);
+                  return g("copy"), l.remove(), p;
                 }, W = function(i) {
                   var a = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {
                     container: document.body
                   }, l = "";
                   return typeof i == "string" ? l = U(i, a) : i instanceof HTMLInputElement && !["text", "search", "url", "tel", "password"].includes(i == null ? void 0 : i.type) ? l = U(i.value, a) : (l = E()(i), g("copy")), l;
                 }, D = W;
-                function $(p) {
+                function $(v) {
                   "@babel/helpers - typeof";
                   return typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? $ = function(a) {
                     return typeof a;
                   } : $ = function(a) {
                     return a && typeof Symbol == "function" && a.constructor === Symbol && a !== Symbol.prototype ? "symbol" : typeof a;
-                  }, $(p);
+                  }, $(v);
                 }
                 var ee = function() {
-                  var i = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, a = i.action, l = a === void 0 ? "copy" : a, d = i.container, m = i.target, T = i.text;
+                  var i = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, a = i.action, l = a === void 0 ? "copy" : a, p = i.container, h = i.target, T = i.text;
                   if (l !== "copy" && l !== "cut")
                     throw new Error('Invalid "action" value, use either "copy" or "cut"');
-                  if (m !== void 0)
-                    if (m && $(m) === "object" && m.nodeType === 1) {
-                      if (l === "copy" && m.hasAttribute("disabled"))
+                  if (h !== void 0)
+                    if (h && $(h) === "object" && h.nodeType === 1) {
+                      if (l === "copy" && h.hasAttribute("disabled"))
                         throw new Error('Invalid "target" attribute. Please use "readonly" instead of "disabled" attribute');
-                      if (l === "cut" && (m.hasAttribute("readonly") || m.hasAttribute("disabled")))
+                      if (l === "cut" && (h.hasAttribute("readonly") || h.hasAttribute("disabled")))
                         throw new Error(`Invalid "target" attribute. You can't cut text from elements with "readonly" or "disabled" attributes`);
                     } else
                       throw new Error('Invalid "target" value, use a valid Element');
                   if (T)
                     return D(T, {
-                      container: d
+                      container: p
                     });
-                  if (m)
-                    return l === "cut" ? b(m) : D(m, {
-                      container: d
+                  if (h)
+                    return l === "cut" ? d(h) : D(h, {
+                      container: p
                     });
                 }, te = ee;
-                function M(p) {
+                function M(v) {
                   "@babel/helpers - typeof";
                   return typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? M = function(a) {
                     return typeof a;
                   } : M = function(a) {
                     return a && typeof Symbol == "function" && a.constructor === Symbol && a !== Symbol.prototype ? "symbol" : typeof a;
-                  }, M(p);
+                  }, M(v);
                 }
-                function ne(p, i) {
-                  if (!(p instanceof i))
+                function ne(v, i) {
+                  if (!(v instanceof i))
                     throw new TypeError("Cannot call a class as a function");
                 }
-                function Y(p, i) {
+                function Y(v, i) {
                   for (var a = 0; a < i.length; a++) {
                     var l = i[a];
-                    l.enumerable = l.enumerable || !1, l.configurable = !0, "value" in l && (l.writable = !0), Object.defineProperty(p, l.key, l);
+                    l.enumerable = l.enumerable || !1, l.configurable = !0, "value" in l && (l.writable = !0), Object.defineProperty(v, l.key, l);
                   }
                 }
-                function oe(p, i, a) {
-                  return i && Y(p.prototype, i), a && Y(p, a), p;
+                function oe(v, i, a) {
+                  return i && Y(v.prototype, i), a && Y(v, a), v;
                 }
-                function re(p, i) {
+                function re(v, i) {
                   if (typeof i != "function" && i !== null)
                     throw new TypeError("Super expression must either be null or a function");
-                  p.prototype = Object.create(i && i.prototype, { constructor: { value: p, writable: !0, configurable: !0 } }), i && P(p, i);
+                  v.prototype = Object.create(i && i.prototype, { constructor: { value: v, writable: !0, configurable: !0 } }), i && P(v, i);
                 }
-                function P(p, i) {
-                  return P = Object.setPrototypeOf || function(l, d) {
-                    return l.__proto__ = d, l;
-                  }, P(p, i);
+                function P(v, i) {
+                  return P = Object.setPrototypeOf || function(l, p) {
+                    return l.__proto__ = p, l;
+                  }, P(v, i);
                 }
-                function ae(p) {
+                function ae(v) {
                   var i = se();
                   return function() {
-                    var l = R(p), d;
+                    var l = R(v), p;
                     if (i) {
-                      var m = R(this).constructor;
-                      d = Reflect.construct(l, arguments, m);
+                      var h = R(this).constructor;
+                      p = Reflect.construct(l, arguments, h);
                     } else
-                      d = l.apply(this, arguments);
-                    return ie(this, d);
+                      p = l.apply(this, arguments);
+                    return ie(this, p);
                   };
                 }
-                function ie(p, i) {
-                  return i && (M(i) === "object" || typeof i == "function") ? i : ue(p);
+                function ie(v, i) {
+                  return i && (M(i) === "object" || typeof i == "function") ? i : ue(v);
                 }
-                function ue(p) {
-                  if (p === void 0)
+                function ue(v) {
+                  if (v === void 0)
                     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-                  return p;
+                  return v;
                 }
                 function se() {
                   if (typeof Reflect > "u" || !Reflect.construct || Reflect.construct.sham) return !1;
@@ -580,28 +580,28 @@ function Ve() {
                     return !1;
                   }
                 }
-                function R(p) {
+                function R(v) {
                   return R = Object.setPrototypeOf ? Object.getPrototypeOf : function(a) {
                     return a.__proto__ || Object.getPrototypeOf(a);
-                  }, R(p);
+                  }, R(v);
                 }
-                function z(p, i) {
-                  var a = "data-clipboard-".concat(p);
+                function z(v, i) {
+                  var a = "data-clipboard-".concat(v);
                   if (i.hasAttribute(a))
                     return i.getAttribute(a);
                 }
-                var le = /* @__PURE__ */ function(p) {
-                  re(a, p);
+                var le = /* @__PURE__ */ function(v) {
+                  re(a, v);
                   var i = ae(a);
-                  function a(l, d) {
-                    var m;
-                    return ne(this, a), m = i.call(this), m.resolveOptions(d), m.listenClick(l), m;
+                  function a(l, p) {
+                    var h;
+                    return ne(this, a), h = i.call(this), h.resolveOptions(p), h.listenClick(l), h;
                   }
                   return oe(a, [{
                     key: "resolveOptions",
                     value: function() {
-                      var d = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
-                      this.action = typeof d.action == "function" ? d.action : this.defaultAction, this.target = typeof d.target == "function" ? d.target : this.defaultTarget, this.text = typeof d.text == "function" ? d.text : this.defaultText, this.container = M(d.container) === "object" ? d.container : document.body;
+                      var p = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
+                      this.action = typeof p.action == "function" ? p.action : this.defaultAction, this.target = typeof p.target == "function" ? p.target : this.defaultTarget, this.text = typeof p.text == "function" ? p.text : this.defaultText, this.container = M(p.container) === "object" ? p.container : document.body;
                     }
                     /**
                      * Adds a click event listener to the passed trigger.
@@ -609,10 +609,10 @@ function Ve() {
                      */
                   }, {
                     key: "listenClick",
-                    value: function(d) {
-                      var m = this;
-                      this.listener = _()(d, "click", function(T) {
-                        return m.onClick(T);
+                    value: function(p) {
+                      var h = this;
+                      this.listener = j()(p, "click", function(T) {
+                        return h.onClick(T);
                       });
                     }
                     /**
@@ -621,19 +621,19 @@ function Ve() {
                      */
                   }, {
                     key: "onClick",
-                    value: function(d) {
-                      var m = d.delegateTarget || d.currentTarget, T = this.action(m) || "copy", B = te({
+                    value: function(p) {
+                      var h = p.delegateTarget || p.currentTarget, T = this.action(h) || "copy", B = te({
                         action: T,
                         container: this.container,
-                        target: this.target(m),
-                        text: this.text(m)
+                        target: this.target(h),
+                        text: this.text(h)
                       });
                       this.emit(B ? "success" : "error", {
                         action: T,
                         text: B,
-                        trigger: m,
+                        trigger: h,
                         clearSelection: function() {
-                          m && m.focus(), window.getSelection().removeAllRanges();
+                          h && h.focus(), window.getSelection().removeAllRanges();
                         }
                       });
                     }
@@ -643,8 +643,8 @@ function Ve() {
                      */
                   }, {
                     key: "defaultAction",
-                    value: function(d) {
-                      return z("action", d);
+                    value: function(p) {
+                      return z("action", p);
                     }
                     /**
                      * Default `target` lookup function.
@@ -652,10 +652,10 @@ function Ve() {
                      */
                   }, {
                     key: "defaultTarget",
-                    value: function(d) {
-                      var m = z("target", d);
-                      if (m)
-                        return document.querySelector(m);
+                    value: function(p) {
+                      var h = z("target", p);
+                      if (h)
+                        return document.querySelector(h);
                     }
                     /**
                      * Allow fire programmatically a copy action
@@ -669,8 +669,8 @@ function Ve() {
                      * Default `text` lookup function.
                      * @param {Element} trigger
                      */
-                    value: function(d) {
-                      return z("text", d);
+                    value: function(p) {
+                      return z("text", p);
                     }
                     /**
                      * Destroy lifecycle.
@@ -682,11 +682,11 @@ function Ve() {
                     }
                   }], [{
                     key: "copy",
-                    value: function(d) {
-                      var m = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {
+                    value: function(p) {
+                      var h = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {
                         container: document.body
                       };
-                      return D(d, m);
+                      return D(p, h);
                     }
                     /**
                      * Allow fire programmatically a cut action
@@ -695,8 +695,8 @@ function Ve() {
                      */
                   }, {
                     key: "cut",
-                    value: function(d) {
-                      return b(d);
+                    value: function(p) {
+                      return d(p);
                     }
                     /**
                      * Returns the support of the given action, or all actions if no action is
@@ -706,8 +706,8 @@ function Ve() {
                   }, {
                     key: "isSupported",
                     value: function() {
-                      var d = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : ["copy", "cut"], m = typeof d == "string" ? [d] : d, T = !!document.queryCommandSupported;
-                      return m.forEach(function(B) {
+                      var p = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : ["copy", "cut"], h = typeof p == "string" ? [p] : p, T = !!document.queryCommandSupported;
+                      return h.forEach(function(B) {
                         T = T && !!document.queryCommandSupported(B);
                       }), T;
                     }
@@ -739,22 +739,22 @@ function Ve() {
               /***/
               function(u, o, t) {
                 var n = t(828);
-                function r(x, E, g, h, b) {
-                  var S = _.apply(this, arguments);
-                  return x.addEventListener(g, S, b), {
+                function r(_, E, g, x, d) {
+                  var S = j.apply(this, arguments);
+                  return _.addEventListener(g, S, d), {
                     destroy: function() {
-                      x.removeEventListener(g, S, b);
+                      _.removeEventListener(g, S, d);
                     }
                   };
                 }
-                function f(x, E, g, h, b) {
-                  return typeof x.addEventListener == "function" ? r.apply(null, arguments) : typeof g == "function" ? r.bind(null, document).apply(null, arguments) : (typeof x == "string" && (x = document.querySelectorAll(x)), Array.prototype.map.call(x, function(S) {
-                    return r(S, E, g, h, b);
+                function f(_, E, g, x, d) {
+                  return typeof _.addEventListener == "function" ? r.apply(null, arguments) : typeof g == "function" ? r.bind(null, document).apply(null, arguments) : (typeof _ == "string" && (_ = document.querySelectorAll(_)), Array.prototype.map.call(_, function(S) {
+                    return r(S, E, g, x, d);
                   }));
                 }
-                function _(x, E, g, h) {
-                  return function(b) {
-                    b.delegateTarget = n(b.target, E), b.delegateTarget && h.call(x, b);
+                function j(_, E, g, x) {
+                  return function(d) {
+                    d.delegateTarget = n(d.target, E), d.delegateTarget && x.call(_, d);
                   };
                 }
                 u.exports = f;
@@ -782,41 +782,41 @@ function Ve() {
               /***/
               function(u, o, t) {
                 var n = t(879), r = t(438);
-                function f(g, h, b) {
-                  if (!g && !h && !b)
+                function f(g, x, d) {
+                  if (!g && !x && !d)
                     throw new Error("Missing required arguments");
-                  if (!n.string(h))
+                  if (!n.string(x))
                     throw new TypeError("Second argument must be a String");
-                  if (!n.fn(b))
+                  if (!n.fn(d))
                     throw new TypeError("Third argument must be a Function");
                   if (n.node(g))
-                    return _(g, h, b);
+                    return j(g, x, d);
                   if (n.nodeList(g))
-                    return x(g, h, b);
+                    return _(g, x, d);
                   if (n.string(g))
-                    return E(g, h, b);
+                    return E(g, x, d);
                   throw new TypeError("First argument must be a String, HTMLElement, HTMLCollection, or NodeList");
                 }
-                function _(g, h, b) {
-                  return g.addEventListener(h, b), {
+                function j(g, x, d) {
+                  return g.addEventListener(x, d), {
                     destroy: function() {
-                      g.removeEventListener(h, b);
+                      g.removeEventListener(x, d);
                     }
                   };
                 }
-                function x(g, h, b) {
+                function _(g, x, d) {
                   return Array.prototype.forEach.call(g, function(S) {
-                    S.addEventListener(h, b);
+                    S.addEventListener(x, d);
                   }), {
                     destroy: function() {
                       Array.prototype.forEach.call(g, function(S) {
-                        S.removeEventListener(h, b);
+                        S.removeEventListener(x, d);
                       });
                     }
                   };
                 }
-                function E(g, h, b) {
-                  return r(document.body, g, h, b);
+                function E(g, x, d) {
+                  return r(document.body, g, x, d);
                 }
                 u.exports = f;
               }
@@ -834,8 +834,8 @@ function Ve() {
                     r || t.setAttribute("readonly", ""), t.select(), t.setSelectionRange(0, t.value.length), r || t.removeAttribute("readonly"), n = t.value;
                   } else {
                     t.hasAttribute("contenteditable") && t.focus();
-                    var f = window.getSelection(), _ = document.createRange();
-                    _.selectNodeContents(t), f.removeAllRanges(), f.addRange(_), n = f.toString();
+                    var f = window.getSelection(), j = document.createRange();
+                    j.selectNodeContents(t), f.removeAllRanges(), f.addRange(j), n = f.toString();
                   }
                   return n;
                 }
@@ -858,33 +858,33 @@ function Ve() {
                   },
                   once: function(t, n, r) {
                     var f = this;
-                    function _() {
-                      f.off(t, _), n.apply(r, arguments);
+                    function j() {
+                      f.off(t, j), n.apply(r, arguments);
                     }
-                    return _._ = n, this.on(t, _, r);
+                    return j._ = n, this.on(t, j, r);
                   },
                   emit: function(t) {
-                    var n = [].slice.call(arguments, 1), r = ((this.e || (this.e = {}))[t] || []).slice(), f = 0, _ = r.length;
-                    for (f; f < _; f++)
+                    var n = [].slice.call(arguments, 1), r = ((this.e || (this.e = {}))[t] || []).slice(), f = 0, j = r.length;
+                    for (f; f < j; f++)
                       r[f].fn.apply(r[f].ctx, n);
                     return this;
                   },
                   off: function(t, n) {
-                    var r = this.e || (this.e = {}), f = r[t], _ = [];
+                    var r = this.e || (this.e = {}), f = r[t], j = [];
                     if (f && n)
-                      for (var x = 0, E = f.length; x < E; x++)
-                        f[x].fn !== n && f[x].fn._ !== n && _.push(f[x]);
-                    return _.length ? r[t] = _ : delete r[t], this;
+                      for (var _ = 0, E = f.length; _ < E; _++)
+                        f[_].fn !== n && f[_].fn._ !== n && j.push(f[_]);
+                    return j.length ? r[t] = j : delete r[t], this;
                   }
                 }, u.exports = o, u.exports.TinyEmitter = o;
               }
             )
             /******/
-          }, v = {};
+          }, y = {};
           function s(u) {
-            if (v[u])
-              return v[u].exports;
-            var o = v[u] = {
+            if (y[u])
+              return y[u].exports;
+            var o = y[u] = {
               /******/
               // no module.id needed
               /******/
@@ -926,12 +926,12 @@ function Ve() {
   }(L)), L.exports;
 }
 var Me = Ve();
-const $e = /* @__PURE__ */ Ae(Me), Re = function(e, y) {
-  let c = Date.now(), v;
+const $e = /* @__PURE__ */ Ae(Me), Re = function(e, m) {
+  let c = Date.now(), y;
   return (...s) => {
-    Date.now() - c < y && v && clearTimeout(v), v = setTimeout(() => {
+    Date.now() - c < m && y && clearTimeout(y), y = setTimeout(() => {
       e(...s);
-    }, y), c = Date.now();
+    }, m), c = Date.now();
   };
 }, Be = C({
   name: "JsonViewer",
@@ -986,22 +986,24 @@ const $e = /* @__PURE__ */ Ae(Me), Re = function(e, y) {
    * @param props - The component's props.
    * @param context - The setup context, including `emit`.
    */
-  setup(e, { emit: y }) {
-    const c = w(!1), v = w(!1), s = w(e.expanded), u = w(null), o = w(null);
-    I("expandDepth", e.expandDepth), I("timeformat", e.timeformat), I("keyClick", (h) => {
-      y("onKeyClick", h);
+  setup(e, { emit: m }) {
+    const c = w(!1), y = w(!1), s = w(e.expanded), u = w(null), o = w(null);
+    I("expandDepth", e.expandDepth), I("timeformat", e.timeformat), I("keyClick", (d) => {
+      m("onKeyClick", d);
     });
-    const t = O(() => "jv-container jv-" + e.theme + (e.boxed ? " boxed" : "")), n = O(() => {
+    const t = (d) => {
+      console.log("onExpand", d), m("expand", d);
+    }, n = O(() => "jv-container jv-" + e.theme + (e.boxed ? " boxed" : "")), r = O(() => {
       if (typeof e.copyable == "boolean" && !e.copyable)
         return { copyText: "copy", copiedText: "copied!", timeout: 2e3, align: "right" };
-      const h = e.copyable;
+      const d = e.copyable;
       return {
-        copyText: h.copyText || "copy",
-        copiedText: h.copiedText || "copied!",
-        timeout: h.timeout || 2e3,
-        align: h.align || "right"
+        copyText: d.copyText || "copy",
+        copiedText: d.copiedText || "copied!",
+        timeout: d.timeout || 2e3,
+        align: d.align || "right"
       };
-    }), r = O(() => {
+    }), f = O(() => {
       if (!e.parse || typeof e.value != "string")
         return e.value;
       try {
@@ -1009,49 +1011,50 @@ const $e = /* @__PURE__ */ Ae(Me), Re = function(e, y) {
       } catch {
         return e.value;
       }
-    }), f = () => {
-      x();
-    }, x = Re(() => {
+    }), j = () => {
+      E();
+    }, E = Re(() => {
       fe(() => {
-        o.value && (o.value.$el.clientHeight >= 250 ? v.value = !0 : v.value = !1);
+        o.value && (o.value.$el.clientHeight >= 250 ? y.value = !0 : y.value = !1);
       });
-    }, 200), E = (h) => {
+    }, 200), g = (d) => {
       c.value || (c.value = !0, setTimeout(() => {
         c.value = !1;
-      }, n.value.timeout), y("copied", h));
-    }, g = () => {
+      }, r.value.timeout), m("copied", d));
+    }, x = () => {
       s.value = !s.value;
     };
     return J(() => e.value, () => {
-      f();
+      j();
     }), H(() => {
-      e.boxed && o.value && (f(), o.value.$el.addEventListener("resized", f, !0)), e.copyable && u.value && new $e(u.value, {
-        text: () => JSON.stringify(r.value, null, 2)
+      e.boxed && o.value && (j(), o.value.$el.addEventListener("resized", j, !0)), e.copyable && u.value && new $e(u.value, {
+        text: () => JSON.stringify(f.value, null, 2)
         // Use parseValue for copying
-      }).on("success", E);
+      }).on("success", g);
     }), {
       clip: u,
       jsonBox: o,
       copied: c,
-      expandableCode: v,
+      expandableCode: y,
       expandCode: s,
-      jvClass: t,
-      copyText: n,
-      parseValue: r,
-      toggleExpandCode: g
+      jvClass: n,
+      copyText: r,
+      parseValue: f,
+      toggleExpandCode: x,
+      onExpand: t
       // Methods are already bound or don't need explicit exposure if not used in template
       // onResized, // only called internally
       // debResized, // only called internally
       // onCopied, // only called internally
     };
   }
-}), Le = (e, y) => {
+}), Le = (e, m) => {
   const c = e.__vccOpts || e;
-  for (const [v, s] of y)
-    c[v] = s;
+  for (const [y, s] of m)
+    c[y] = s;
   return c;
 };
-function De(e, y, c, v, s, u) {
+function De(e, m, c, y, s, u) {
   const o = de("json-box");
   return A(), N("div", {
     class: k(e.jvClass)
@@ -1078,13 +1081,13 @@ function De(e, y, c, v, s, u) {
         sort: e.sort,
         "preview-mode": e.previewMode,
         onExpand: e.onExpand,
-        onCollapse: y[0] || (y[0] = (t) => e.$emit("collapse", t))
+        onCollapse: m[0] || (m[0] = (t) => e.$emit("collapse", t))
       }, null, 8, ["value", "sort", "preview-mode", "onExpand"])
     ], 2),
     e.expandableCode && e.boxed ? (A(), N("div", {
       key: 1,
       class: "jv-more",
-      onClick: y[1] || (y[1] = (...t) => e.toggleExpandCode && e.toggleExpandCode(...t))
+      onClick: m[1] || (m[1] = (...t) => e.toggleExpandCode && e.toggleExpandCode(...t))
     }, [
       q("span", {
         class: k(["jv-toggle", { open: !!e.expandCode }])

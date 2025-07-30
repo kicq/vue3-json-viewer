@@ -69,6 +69,7 @@ declare const _default: import('vue').DefineComponent<{
     }>;
     parseValue: import('vue').ComputedRef<any>;
     toggleExpandCode: () => void;
+    onExpand: (event: Event) => void;
 }, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, ("expand" | "collapse" | "onKeyClick" | "copied")[], "expand" | "collapse" | "onKeyClick" | "copied", import('vue').PublicProps, Readonly<{
     value: any;
     expanded?: boolean | undefined;

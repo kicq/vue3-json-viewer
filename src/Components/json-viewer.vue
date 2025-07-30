@@ -267,6 +267,7 @@ export default defineComponent({
       copyText,
       parseValue,
       toggleExpandCode,
+      onExpand,
       // Methods are already bound or don't need explicit exposure if not used in template
       // onResized, // only called internally
       // debResized, // only called internally
