@@ -82,6 +82,7 @@ export default defineComponent({
     // };
       // ...existing code...
       const toggle = () => {
+        console.log("Toggle called for:", props.keyName, "Current expand state:", expand.value);
           expand.value = !expand.value;
           // $emit Vue-событие для раскрытия/скрытия
           const eventName = expand.value ? "expand" : "collapse";
