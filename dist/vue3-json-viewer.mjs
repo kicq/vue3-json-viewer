@@ -13,17 +13,17 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
    * @param props - The component's props.
    */
   setup(e) {
-    const m = w(!0), c = w(!1), v = w(null), s = w(null);
+    const y = w(!0), c = w(!1), v = w(null), s = w(null);
     H(() => {
       v.value && s.value && v.value.offsetHeight > s.value.offsetHeight && (c.value = !0);
     });
     const u = () => {
-      m.value = !m.value;
+      y.value = !y.value;
     };
     return () => {
       const o = e.jsonValue, t = me.test(o);
       let n;
-      !m.value && c.value ? n = j("span", {
+      !y.value && c.value ? n = j("span", {
         class: { "jv-ellipsis": !0 },
         onClick: u
       }, "...") : t ? n = j("span", { class: { "jv-item": !0, "jv-string": !0 }, ref: v }, [
@@ -42,7 +42,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
         class: {
           "jv-toggle": !0,
           // CSS class for the toggle button
-          open: m.value
+          open: y.value
           // Class to indicate open/closed state
         },
         onClick: u
@@ -65,7 +65,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
     }
   },
   setup(e) {
-    const m = e, c = O(() => m.jsonValue === null ? "null" : "undefined");
+    const y = e, c = O(() => y.jsonValue === null ? "null" : "undefined");
     return (v, s) => (A(), N("span", he, V(c.value), 1));
   }
 }), be = /* @__PURE__ */ C({
@@ -78,7 +78,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
     }
   },
   setup(e) {
-    const m = e, c = O(() => Number.isInteger(m.jsonValue));
+    const y = e, c = O(() => Number.isInteger(y.jsonValue));
     return (v, s) => (A(), N("span", {
       class: k(["jv-item", "jv-number", c.value ? "jv-number-integer" : "jv-number-float"])
     }, V(e.jsonValue.toString()), 3));
@@ -95,7 +95,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
     }
   },
   setup(e) {
-    return (m, c) => (A(), N("span", je, V(e.jsonValue.toString()), 1));
+    return (y, c) => (A(), N("span", je, V(e.jsonValue.toString()), 1));
   }
 }), _e = C({
   name: "JsonObject",
@@ -128,7 +128,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
    * @param props - The component's props.
    * @param context - The setup context, including `emit`.
    */
-  setup(e, { emit: m }) {
+  setup(e, { emit: y }) {
     const c = w({});
     let v = null;
     const s = (n) => {
@@ -155,7 +155,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
           r.initEvent("resized", !0, !1), v.dispatchEvent(r);
         }
     }, t = () => {
-      m("update:expand", !e.expand), o();
+      y("update:expand", !e.expand), o();
     };
     return () => {
       const n = [];
@@ -216,7 +216,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
    * @param props - The component's props.
    * @param context - The setup context, including `emit`.
    */
-  setup(e, { emit: m }) {
+  setup(e, { emit: y }) {
     const c = w([]);
     let v = null;
     const s = (o, t = 0) => {
@@ -228,7 +228,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
       s(o);
     }, { immediate: !0, deep: !0 });
     const u = () => {
-      if (m("update:expand", !e.expand), v)
+      if (y("update:expand", !e.expand), v)
         try {
           v.dispatchEvent(new Event("resized"));
         } catch {
@@ -277,7 +277,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
     }
   },
   setup(e) {
-    return (m, c) => (A(), N("span", {
+    return (y, c) => (A(), N("span", {
       class: k(["jv-item", "jv-function"]),
       title: e.jsonValue.toString()
     }, " <function> ", 8, we));
@@ -294,7 +294,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
     }
   },
   setup(e) {
-    const m = e, c = F("timeformat", (s) => s.toLocaleString()), v = O(() => c(m.jsonValue));
+    const y = e, c = F("timeformat", (s) => s.toLocaleString()), v = O(() => c(y.jsonValue));
     return (s, u) => (A(), N("span", ke, ' "' + V(v.value) + '" ', 1));
   }
 }), Se = {
@@ -309,7 +309,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
     }
   },
   setup(e) {
-    return (m, c) => (A(), N("span", Se, V(e.jsonValue.toString()), 1));
+    return (y, c) => (A(), N("span", Se, V(e.jsonValue.toString()), 1));
   }
 }), K = C({
   name: "JsonBox",
@@ -338,7 +338,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
    * Setup function for the JsonBox component.
    * @param props - The component's props.
    */
-  setup(e, m) {
+  setup(e, y) {
     const c = F("expandDepth", 1 / 0), v = F("keyClick", () => {
     }), s = w(!0);
     let u = null;
@@ -348,7 +348,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
     const o = () => {
       console.log("Toggle called for:", e.keyName, "Current expand state:", s.value), s.value = !s.value;
       const t = s.value ? "expand" : "collapse";
-      if (m.emit(t, {
+      if (y.emit(t, {
         keyName: e.keyName,
         value: e.value,
         depth: e.depth
@@ -435,7 +435,7 @@ var L = { exports: {} };
  */
 var Oe = L.exports, X;
 function Ve() {
-  return X || (X = 1, function(e, m) {
+  return X || (X = 1, function(e, y) {
     (function(v, s) {
       e.exports = s();
     })(Oe, function() {
@@ -484,35 +484,6 @@ function Ve() {
                   }, l = "";
                   return typeof i == "string" ? l = U(i, a) : i instanceof HTMLInputElement && !["text", "search", "url", "tel", "password"].includes(i == null ? void 0 : i.type) ? l = U(i.value, a) : (l = E()(i), g("copy")), l;
                 }, D = W;
-                function $(p) {
-                  "@babel/helpers - typeof";
-                  return typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? $ = function(a) {
-                    return typeof a;
-                  } : $ = function(a) {
-                    return a && typeof Symbol == "function" && a.constructor === Symbol && a !== Symbol.prototype ? "symbol" : typeof a;
-                  }, $(p);
-                }
-                var ee = function() {
-                  var i = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, a = i.action, l = a === void 0 ? "copy" : a, d = i.container, y = i.target, T = i.text;
-                  if (l !== "copy" && l !== "cut")
-                    throw new Error('Invalid "action" value, use either "copy" or "cut"');
-                  if (y !== void 0)
-                    if (y && $(y) === "object" && y.nodeType === 1) {
-                      if (l === "copy" && y.hasAttribute("disabled"))
-                        throw new Error('Invalid "target" attribute. Please use "readonly" instead of "disabled" attribute');
-                      if (l === "cut" && (y.hasAttribute("readonly") || y.hasAttribute("disabled")))
-                        throw new Error(`Invalid "target" attribute. You can't cut text from elements with "readonly" or "disabled" attributes`);
-                    } else
-                      throw new Error('Invalid "target" value, use a valid Element');
-                  if (T)
-                    return D(T, {
-                      container: d
-                    });
-                  if (y)
-                    return l === "cut" ? b(y) : D(y, {
-                      container: d
-                    });
-                }, te = ee;
                 function M(p) {
                   "@babel/helpers - typeof";
                   return typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? M = function(a) {
@@ -520,6 +491,35 @@ function Ve() {
                   } : M = function(a) {
                     return a && typeof Symbol == "function" && a.constructor === Symbol && a !== Symbol.prototype ? "symbol" : typeof a;
                   }, M(p);
+                }
+                var ee = function() {
+                  var i = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, a = i.action, l = a === void 0 ? "copy" : a, d = i.container, m = i.target, T = i.text;
+                  if (l !== "copy" && l !== "cut")
+                    throw new Error('Invalid "action" value, use either "copy" or "cut"');
+                  if (m !== void 0)
+                    if (m && M(m) === "object" && m.nodeType === 1) {
+                      if (l === "copy" && m.hasAttribute("disabled"))
+                        throw new Error('Invalid "target" attribute. Please use "readonly" instead of "disabled" attribute');
+                      if (l === "cut" && (m.hasAttribute("readonly") || m.hasAttribute("disabled")))
+                        throw new Error(`Invalid "target" attribute. You can't cut text from elements with "readonly" or "disabled" attributes`);
+                    } else
+                      throw new Error('Invalid "target" value, use a valid Element');
+                  if (T)
+                    return D(T, {
+                      container: d
+                    });
+                  if (m)
+                    return l === "cut" ? b(m) : D(m, {
+                      container: d
+                    });
+                }, te = ee;
+                function $(p) {
+                  "@babel/helpers - typeof";
+                  return typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? $ = function(a) {
+                    return typeof a;
+                  } : $ = function(a) {
+                    return a && typeof Symbol == "function" && a.constructor === Symbol && a !== Symbol.prototype ? "symbol" : typeof a;
+                  }, $(p);
                 }
                 function ne(p, i) {
                   if (!(p instanceof i))
@@ -549,15 +549,15 @@ function Ve() {
                   return function() {
                     var l = R(p), d;
                     if (i) {
-                      var y = R(this).constructor;
-                      d = Reflect.construct(l, arguments, y);
+                      var m = R(this).constructor;
+                      d = Reflect.construct(l, arguments, m);
                     } else
                       d = l.apply(this, arguments);
                     return ie(this, d);
                   };
                 }
                 function ie(p, i) {
-                  return i && (M(i) === "object" || typeof i == "function") ? i : ue(p);
+                  return i && ($(i) === "object" || typeof i == "function") ? i : ue(p);
                 }
                 function ue(p) {
                   if (p === void 0)
@@ -588,14 +588,14 @@ function Ve() {
                   re(a, p);
                   var i = ae(a);
                   function a(l, d) {
-                    var y;
-                    return ne(this, a), y = i.call(this), y.resolveOptions(d), y.listenClick(l), y;
+                    var m;
+                    return ne(this, a), m = i.call(this), m.resolveOptions(d), m.listenClick(l), m;
                   }
                   return oe(a, [{
                     key: "resolveOptions",
                     value: function() {
                       var d = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
-                      this.action = typeof d.action == "function" ? d.action : this.defaultAction, this.target = typeof d.target == "function" ? d.target : this.defaultTarget, this.text = typeof d.text == "function" ? d.text : this.defaultText, this.container = M(d.container) === "object" ? d.container : document.body;
+                      this.action = typeof d.action == "function" ? d.action : this.defaultAction, this.target = typeof d.target == "function" ? d.target : this.defaultTarget, this.text = typeof d.text == "function" ? d.text : this.defaultText, this.container = $(d.container) === "object" ? d.container : document.body;
                     }
                     /**
                      * Adds a click event listener to the passed trigger.
@@ -604,9 +604,9 @@ function Ve() {
                   }, {
                     key: "listenClick",
                     value: function(d) {
-                      var y = this;
+                      var m = this;
                       this.listener = _()(d, "click", function(T) {
-                        return y.onClick(T);
+                        return m.onClick(T);
                       });
                     }
                     /**
@@ -616,18 +616,18 @@ function Ve() {
                   }, {
                     key: "onClick",
                     value: function(d) {
-                      var y = d.delegateTarget || d.currentTarget, T = this.action(y) || "copy", B = te({
+                      var m = d.delegateTarget || d.currentTarget, T = this.action(m) || "copy", B = te({
                         action: T,
                         container: this.container,
-                        target: this.target(y),
-                        text: this.text(y)
+                        target: this.target(m),
+                        text: this.text(m)
                       });
                       this.emit(B ? "success" : "error", {
                         action: T,
                         text: B,
-                        trigger: y,
+                        trigger: m,
                         clearSelection: function() {
-                          y && y.focus(), window.getSelection().removeAllRanges();
+                          m && m.focus(), window.getSelection().removeAllRanges();
                         }
                       });
                     }
@@ -647,9 +647,9 @@ function Ve() {
                   }, {
                     key: "defaultTarget",
                     value: function(d) {
-                      var y = z("target", d);
-                      if (y)
-                        return document.querySelector(y);
+                      var m = z("target", d);
+                      if (m)
+                        return document.querySelector(m);
                     }
                     /**
                      * Allow fire programmatically a copy action
@@ -677,10 +677,10 @@ function Ve() {
                   }], [{
                     key: "copy",
                     value: function(d) {
-                      var y = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {
+                      var m = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {
                         container: document.body
                       };
-                      return D(d, y);
+                      return D(d, m);
                     }
                     /**
                      * Allow fire programmatically a cut action
@@ -700,8 +700,8 @@ function Ve() {
                   }, {
                     key: "isSupported",
                     value: function() {
-                      var d = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : ["copy", "cut"], y = typeof d == "string" ? [d] : d, T = !!document.queryCommandSupported;
-                      return y.forEach(function(B) {
+                      var d = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : ["copy", "cut"], m = typeof d == "string" ? [d] : d, T = !!document.queryCommandSupported;
+                      return m.forEach(function(B) {
                         T = T && !!document.queryCommandSupported(B);
                       }), T;
                     }
@@ -919,13 +919,13 @@ function Ve() {
     });
   }(L)), L.exports;
 }
-var Me = Ve();
-const $e = /* @__PURE__ */ Ae(Me), Re = function(e, m) {
+var $e = Ve();
+const Me = /* @__PURE__ */ Ae($e), Re = function(e, y) {
   let c = Date.now(), v;
   return (...s) => {
-    Date.now() - c < m && v && clearTimeout(v), v = setTimeout(() => {
+    Date.now() - c < y && v && clearTimeout(v), v = setTimeout(() => {
       e(...s);
-    }, m), c = Date.now();
+    }, y), c = Date.now();
   };
 }, Be = C({
   name: "JsonViewer",
@@ -974,16 +974,16 @@ const $e = /* @__PURE__ */ Ae(Me), Re = function(e, m) {
       default: !1
     }
   },
-  emits: ["onKeyClick", "copied"],
+  emits: ["onKeyClick", "copied", "expand", "collapse"],
   /**
    * Setup function for the JsonViewer component.
    * @param props - The component's props.
    * @param context - The setup context, including `emit`.
    */
-  setup(e, { emit: m }) {
+  setup(e, { emit: y }) {
     const c = w(!1), v = w(!1), s = w(e.expanded), u = w(null), o = w(null);
     I("expandDepth", e.expandDepth), I("timeformat", e.timeformat), I("keyClick", (h) => {
-      m("onKeyClick", h);
+      y("onKeyClick", h);
     });
     const t = O(() => "jv-container jv-" + e.theme + (e.boxed ? " boxed" : "")), n = O(() => {
       if (typeof e.copyable == "boolean" && !e.copyable)
@@ -1012,14 +1012,14 @@ const $e = /* @__PURE__ */ Ae(Me), Re = function(e, m) {
     }, 200), E = (h) => {
       c.value || (c.value = !0, setTimeout(() => {
         c.value = !1;
-      }, n.value.timeout), m("copied", h));
+      }, n.value.timeout), y("copied", h));
     }, g = () => {
       s.value = !s.value;
     };
     return J(() => e.value, () => {
       f();
     }), H(() => {
-      e.boxed && o.value && (f(), o.value.$el.addEventListener("resized", f, !0)), e.copyable && u.value && new $e(u.value, {
+      e.boxed && o.value && (f(), o.value.$el.addEventListener("resized", f, !0)), e.copyable && u.value && new Me(u.value, {
         text: () => JSON.stringify(r.value, null, 2)
         // Use parseValue for copying
       }).on("success", E);
@@ -1039,13 +1039,13 @@ const $e = /* @__PURE__ */ Ae(Me), Re = function(e, m) {
       // onCopied, // only called internally
     };
   }
-}), Le = (e, m) => {
+}), Le = (e, y) => {
   const c = e.__vccOpts || e;
-  for (const [v, s] of m)
+  for (const [v, s] of y)
     c[v] = s;
   return c;
 };
-function De(e, m, c, v, s, u) {
+function De(e, y, c, v, s, u) {
   const o = de("json-box");
   return A(), N("div", {
     class: k(e.jvClass)
@@ -1070,13 +1070,15 @@ function De(e, m, c, v, s, u) {
         ref: "jsonBox",
         value: e.parseValue,
         sort: e.sort,
-        "preview-mode": e.previewMode
+        "preview-mode": e.previewMode,
+        onExpand: y[0] || (y[0] = (t) => e.$emit("expand", t)),
+        onCollapse: y[1] || (y[1] = (t) => e.$emit("collapse", t))
       }, null, 8, ["value", "sort", "preview-mode"])
     ], 2),
     e.expandableCode && e.boxed ? (A(), N("div", {
       key: 1,
       class: "jv-more",
-      onClick: m[0] || (m[0] = (...t) => e.toggleExpandCode && e.toggleExpandCode(...t))
+      onClick: y[2] || (y[2] = (...t) => e.toggleExpandCode && e.toggleExpandCode(...t))
     }, [
       q("span", {
         class: k(["jv-toggle", { open: !!e.expandCode }])

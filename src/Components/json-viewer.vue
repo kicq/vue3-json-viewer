@@ -1,19 +1,19 @@
 <template>
-  <div :class="jvClass">
-    <div v-if="copyable" :class="`jv-tooltip ${copyText.align || 'right'}`">
-      <span ref="clip" class="jv-button" :class="{ copied }">
-        <slot name="copy" :copied="copied">
-          {{ copied ? copyText.copiedText : copyText.copyText }}
-        </slot>
-      </span>
+    <div :class="jvClass">
+        <div v-if="copyable" :class="`jv-tooltip ${copyText.align || 'right'}`">
+            <span ref="clip" class="jv-button" :class="{ copied }">
+                <slot name="copy" :copied="copied">
+                    {{ copied ? copyText.copiedText : copyText.copyText }}
+                </slot>
+            </span>
+        </div>
+        <div class="jv-code" :class="{ open: expandCode, boxed }">
+            <json-box ref="jsonBox" :value="parseValue" :sort="sort" :preview-mode="previewMode" @expand="$emit('expand', $event)" @collapse="$emit('collapse', $event)" />
+        </div>
+        <div v-if="expandableCode && boxed" class="jv-more" @click="toggleExpandCode">
+            <span class="jv-toggle" :class="{ open: !!expandCode }" />
+        </div>
     </div>
-    <div class="jv-code" :class="{ open: expandCode, boxed }">
-      <json-box ref="jsonBox" :value="parseValue" :sort="sort" :preview-mode="previewMode" />
-    </div>
-    <div v-if="expandableCode && boxed" class="jv-more" @click="toggleExpandCode">
-      <span class="jv-toggle" :class="{ open: !!expandCode }" />
-    </div>
-  </div>
 </template>
 
 <script lang="ts">
@@ -116,7 +116,7 @@ export default defineComponent({
       default: false,
     }
   },
-  emits: ["onKeyClick", "copied"],
+  emits: ["onKeyClick", "copied", "expand", "collapse"],
   /**
    * Setup function for the JsonViewer component.
    * @param props - The component's props.
