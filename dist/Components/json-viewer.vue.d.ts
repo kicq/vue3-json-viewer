@@ -129,6 +129,10 @@ declare const _default: import('vue').DefineComponent<{
             default: number;
         };
         previewMode: BooleanConstructor;
+        path: {
+            type: PropType<string[]>;
+            default: () => never[];
+        };
     }>, () => import('vue').VNode<import('vue').RendererNode, import('vue').RendererElement, {
         [key: string]: any;
     }>, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
@@ -146,8 +150,13 @@ declare const _default: import('vue').DefineComponent<{
             default: number;
         };
         previewMode: BooleanConstructor;
+        path: {
+            type: PropType<string[]>;
+            default: () => never[];
+        };
     }>> & Readonly<{}>, {
         sort: boolean;
+        path: string[];
         previewMode: boolean;
         keyName: string;
         depth: number;

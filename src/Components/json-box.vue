@@ -40,6 +40,10 @@ export default defineComponent({
     },
     /** Whether preview mode is enabled. Passed down from JsonViewer. */
     previewMode: Boolean,
+    path: {
+        type: Array as PropType<string[]>,
+        default: () => [],
+    },
   },
   /**
    * Setup function for the JsonBox component.
@@ -56,6 +60,12 @@ export default defineComponent({
     const expand = ref(true);
     /** Holds the reference to the root DOM element of this component instance for event dispatching. */
     let currentEl: HTMLElement | null = null;
+
+    const fullPath = [...props.path];
+    if (props.keyName) {
+        fullPath.push(props.keyName);
+    }
+
 
     onMounted(() => {
       // Determine initial expansion state based on preview mode and depth.
@@ -76,7 +86,8 @@ export default defineComponent({
             keyName: props.keyName,
             value: props.value,
             depth: props.depth,
-            expanded: expand.value
+            expanded: expand.value,
+            path: fullPath,
         });
 
         if (currentEl) {
@@ -170,6 +181,7 @@ export default defineComponent({
           depth: props.depth,   // Pass current depth
           expand: expand.value, // Pass current expand state
           previewMode: props.previewMode,
+          path: fullPath,
           // Listen for 'update:expand' events from child components (e.g., JsonArray, JsonObject)
           // This allows children to request a change in their own expansion state.
           "onUpdate:expand": (newExpandState: boolean) => {

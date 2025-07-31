@@ -24,6 +24,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     };
     /** Whether preview mode is enabled. Passed down from JsonViewer. */
     previewMode: BooleanConstructor;
+    path: {
+        type: PropType<string[]>;
+        default: () => never[];
+    };
 }>, () => VNode<import('vue').RendererNode, import('vue').RendererElement, {
     [key: string]: any;
 }>, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
@@ -46,8 +50,13 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     };
     /** Whether preview mode is enabled. Passed down from JsonViewer. */
     previewMode: BooleanConstructor;
+    path: {
+        type: PropType<string[]>;
+        default: () => never[];
+    };
 }>> & Readonly<{}>, {
     sort: boolean;
+    path: string[];
     previewMode: boolean;
     keyName: string;
     depth: number;
