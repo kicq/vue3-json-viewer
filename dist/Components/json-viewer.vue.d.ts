@@ -1,10 +1,17 @@
 import { PropType } from 'vue';
 import { default as JsonBox } from './json-box.vue';
+import { default as ClipboardJS } from 'clipboard';
 interface CopyableOptions {
     copyText?: string;
     copiedText?: string;
     timeout?: number;
     align?: 'left' | 'right';
+}
+export interface onToggleProps {
+    keyName: string;
+    value: any;
+    depth: number;
+    expanded: boolean;
 }
 interface JsonBoxComponent extends InstanceType<typeof JsonBox> {
     $el: HTMLElement;
@@ -69,7 +76,19 @@ declare const _default: import('vue').DefineComponent<{
     }>;
     parseValue: import('vue').ComputedRef<any>;
     toggleExpandCode: () => void;
-}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, ("onToggle" | "onKeyClick" | "copied")[], "onToggle" | "onKeyClick" | "copied", import('vue').PublicProps, Readonly<{
+}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
+    onKeyClick: (keyName: string) => true;
+    /**
+     * Emits an event when the JSON has been copied to the clipboard.
+     * @param copyEvent - The event object from ClipboardJS.
+     */
+    copied: (copyEvent: ClipboardJS.Event) => true;
+    /**
+     * Emits an event when the expansion state of the viewer changes.
+     * @param newState - The new expansion state.
+     */
+    onToggle: (newState: onToggleProps) => true;
+}, string, import('vue').PublicProps, Readonly<{
     value: any;
     expanded?: boolean | undefined;
     expandDepth?: number | undefined;
@@ -81,9 +100,9 @@ declare const _default: import('vue').DefineComponent<{
     previewMode?: boolean | undefined;
     parse?: boolean | undefined;
 }> & Readonly<{
-    onOnToggle?: ((...args: any[]) => any) | undefined;
-    onOnKeyClick?: ((...args: any[]) => any) | undefined;
-    onCopied?: ((...args: any[]) => any) | undefined;
+    onOnToggle?: ((newState: onToggleProps) => any) | undefined;
+    onOnKeyClick?: ((keyName: string) => any) | undefined;
+    onCopied?: ((copyEvent: ClipboardJS.Event) => any) | undefined;
 }>, {
     sort: boolean | undefined;
     previewMode: boolean | undefined;

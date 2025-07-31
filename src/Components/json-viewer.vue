@@ -29,7 +29,7 @@ interface CopyableOptions {
   align?: 'left' | 'right';
 }
 
-interface onToggleProps {
+export interface onToggleProps {
     keyName: string,
     value: any,
     depth: number,
@@ -123,7 +123,23 @@ export default defineComponent({
       default: false,
     }
   },
-    emits: ["onKeyClick", "copied", "onToggle"],
+    /**
+     * Emits an event when a key is clicked in the JSON viewer.
+     * @param keyName - The name of the key that was clicked.
+     */
+    emits: {
+      onKeyClick: (keyName: string) => true,
+      /**
+       * Emits an event when the JSON has been copied to the clipboard.
+       * @param copyEvent - The event object from ClipboardJS.
+       */
+      copied: (copyEvent: ClipboardJS.Event) => true,
+      /**
+       * Emits an event when the expansion state of the viewer changes.
+       * @param newState - The new expansion state.
+       */
+      onToggle: (newState: onToggleProps) => true,
+    },
   /**
    * Setup function for the JsonViewer component.
    * @param props - The component's props.

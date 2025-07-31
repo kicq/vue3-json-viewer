@@ -1,5 +1,5 @@
-import { defineComponent as C, ref as T, onMounted as H, h as j, computed as O, createElementBlock as N, openBlock as A, normalizeClass as k, toDisplayString as V, watch as J, inject as D, provide as L, nextTick as fe, resolveComponent as de, createCommentVNode as Z, createElementVNode as F, renderSlot as pe, createTextVNode as ve, createVNode as ye } from "vue";
-const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)+([A-Za-z0-9-~\/])+$/, G = C({
+import { defineComponent as S, ref as T, onMounted as H, h as j, computed as O, createElementBlock as N, openBlock as A, normalizeClass as k, toDisplayString as V, watch as J, inject as D, provide as L, nextTick as fe, resolveComponent as de, createCommentVNode as Z, createElementVNode as F, renderSlot as pe, createTextVNode as ve, createVNode as ye } from "vue";
+const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)+([A-Za-z0-9-~\/])+$/, G = S({
   name: "JsonString",
   props: {
     /** The string value to display. */
@@ -51,7 +51,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
   }
 }), he = {
   class: /* @__PURE__ */ k(["jv-item", "jv-undefined"])
-}, ge = /* @__PURE__ */ C({
+}, ge = /* @__PURE__ */ S({
   __name: "json-undefined",
   props: {
     /**
@@ -68,7 +68,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
     const h = e, l = O(() => h.jsonValue === null ? "null" : "undefined");
     return (p, v) => (A(), N("span", he, V(l.value), 1));
   }
-}), be = /* @__PURE__ */ C({
+}), be = /* @__PURE__ */ S({
   __name: "json-number",
   props: {
     /** The number value to display. */
@@ -85,7 +85,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
   }
 }), je = {
   class: /* @__PURE__ */ k(["jv-item", "jv-boolean"])
-}, xe = /* @__PURE__ */ C({
+}, xe = /* @__PURE__ */ S({
   __name: "json-boolean",
   props: {
     /** The boolean value to display. */
@@ -97,7 +97,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
   setup(e) {
     return (h, l) => (A(), N("span", je, V(e.jsonValue.toString()), 1));
   }
-}), _e = C({
+}), _e = S({
   name: "JsonObject",
   props: {
     /** The object value to render. */
@@ -184,7 +184,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
       } }, r);
     };
   }
-}), Ee = C({
+}), Ee = S({
   name: "JsonArray",
   props: {
     /** The array value to render. */
@@ -267,7 +267,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
       } }, o);
     };
   }
-}), Te = ["title"], we = /* @__PURE__ */ C({
+}), Te = ["title"], we = /* @__PURE__ */ S({
   __name: "json-function",
   props: {
     /** The Function object to represent. */
@@ -284,7 +284,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
   }
 }), ke = {
   class: /* @__PURE__ */ k(["jv-item", "jv-string"])
-}, Ce = /* @__PURE__ */ C({
+}, Se = /* @__PURE__ */ S({
   __name: "json-date",
   props: {
     /** The Date object to display. */
@@ -297,9 +297,9 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
     const h = e, l = D("timeformat", (v) => v.toLocaleString()), p = O(() => l(h.jsonValue));
     return (v, u) => (A(), N("span", ke, ' "' + V(p.value) + '" ', 1));
   }
-}), Se = {
+}), Ce = {
   class: /* @__PURE__ */ k(["jv-item", "jv-regexp"])
-}, Ne = /* @__PURE__ */ C({
+}, Ne = /* @__PURE__ */ S({
   __name: "json-regexp",
   props: {
     /** The RegExp object to display. */
@@ -309,9 +309,9 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
     }
   },
   setup(e) {
-    return (h, l) => (A(), N("span", Se, V(e.jsonValue.toString()), 1));
+    return (h, l) => (A(), N("span", Ce, V(e.jsonValue.toString()), 1));
   }
-}), K = C({
+}), K = S({
   name: "JsonBox",
   props: {
     /** The JSON value to render. Can be any valid JSON type. */
@@ -363,7 +363,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
     return () => {
       const r = [];
       let n;
-      e.value === null || e.value === void 0 ? n = ge : Array.isArray(e.value) ? n = Ee : e.value instanceof Date ? n = Ce : e.value instanceof RegExp ? n = Ne : typeof e.value == "object" ? n = _e : typeof e.value == "number" ? n = be : typeof e.value == "string" ? n = G : typeof e.value == "boolean" ? n = xe : typeof e.value == "function" ? n = we : n = G;
+      e.value === null || e.value === void 0 ? n = ge : Array.isArray(e.value) ? n = Ee : e.value instanceof Date ? n = Se : e.value instanceof RegExp ? n = Ne : typeof e.value == "object" ? n = _e : typeof e.value == "number" ? n = be : typeof e.value == "string" ? n = G : typeof e.value == "boolean" ? n = xe : typeof e.value == "function" ? n = we : n = G;
       const c = e.value && (Array.isArray(e.value) || typeof e.value == "object" && !(e.value instanceof Date) && // Exclude Date
       !(e.value instanceof RegExp));
       return !e.previewMode && c && !(e.value instanceof RegExp) && r.push(
@@ -467,14 +467,14 @@ function Ve() {
                   var a = E()(i);
                   return g("cut"), a;
                 }, b = y;
-                function S(d) {
+                function C(d) {
                   var i = document.documentElement.getAttribute("dir") === "rtl", a = document.createElement("textarea");
                   a.style.fontSize = "12pt", a.style.border = "0", a.style.padding = "0", a.style.margin = "0", a.style.position = "absolute", a.style[i ? "right" : "left"] = "-9999px";
                   var s = window.pageYOffset || document.documentElement.scrollTop;
                   return a.style.top = "".concat(s, "px"), a.setAttribute("readonly", ""), a.value = d, a;
                 }
                 var U = function(i, a) {
-                  var s = S(i);
+                  var s = C(i);
                   a.container.appendChild(s);
                   var f = E()(s);
                   return g("copy"), s.remove(), f;
@@ -734,16 +734,16 @@ function Ve() {
               function(u, o, t) {
                 var r = t(828);
                 function n(_, E, g, y, b) {
-                  var S = x.apply(this, arguments);
-                  return _.addEventListener(g, S, b), {
+                  var C = x.apply(this, arguments);
+                  return _.addEventListener(g, C, b), {
                     destroy: function() {
-                      _.removeEventListener(g, S, b);
+                      _.removeEventListener(g, C, b);
                     }
                   };
                 }
                 function c(_, E, g, y, b) {
-                  return typeof _.addEventListener == "function" ? n.apply(null, arguments) : typeof g == "function" ? n.bind(null, document).apply(null, arguments) : (typeof _ == "string" && (_ = document.querySelectorAll(_)), Array.prototype.map.call(_, function(S) {
-                    return n(S, E, g, y, b);
+                  return typeof _.addEventListener == "function" ? n.apply(null, arguments) : typeof g == "function" ? n.bind(null, document).apply(null, arguments) : (typeof _ == "string" && (_ = document.querySelectorAll(_)), Array.prototype.map.call(_, function(C) {
+                    return n(C, E, g, y, b);
                   }));
                 }
                 function x(_, E, g, y) {
@@ -799,12 +799,12 @@ function Ve() {
                   };
                 }
                 function _(g, y, b) {
-                  return Array.prototype.forEach.call(g, function(S) {
-                    S.addEventListener(y, b);
+                  return Array.prototype.forEach.call(g, function(C) {
+                    C.addEventListener(y, b);
                   }), {
                     destroy: function() {
-                      Array.prototype.forEach.call(g, function(S) {
-                        S.removeEventListener(y, b);
+                      Array.prototype.forEach.call(g, function(C) {
+                        C.removeEventListener(y, b);
                       });
                     }
                   };
@@ -927,7 +927,7 @@ const $e = /* @__PURE__ */ Ae(Me), Re = function(e, h) {
       e(...v);
     }, h), l = Date.now();
   };
-}, Be = C({
+}, Be = S({
   name: "JsonViewer",
   components: {
     JsonBox: K
@@ -974,7 +974,23 @@ const $e = /* @__PURE__ */ Ae(Me), Re = function(e, h) {
       default: !1
     }
   },
-  emits: ["onKeyClick", "copied", "onToggle"],
+  /**
+   * Emits an event when a key is clicked in the JSON viewer.
+   * @param keyName - The name of the key that was clicked.
+   */
+  emits: {
+    onKeyClick: (e) => !0,
+    /**
+     * Emits an event when the JSON has been copied to the clipboard.
+     * @param copyEvent - The event object from ClipboardJS.
+     */
+    copied: (e) => !0,
+    /**
+     * Emits an event when the expansion state of the viewer changes.
+     * @param newState - The new expansion state.
+     */
+    onToggle: (e) => !0
+  },
   /**
    * Setup function for the JsonViewer component.
    * @param props - The component's props.
