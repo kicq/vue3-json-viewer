@@ -1,4 +1,4 @@
-import { defineComponent as S, ref as T, onMounted as H, h as x, computed as O, createElementBlock as N, openBlock as A, normalizeClass as w, toDisplayString as V, watch as J, inject as D, provide as L, nextTick as fe, resolveComponent as de, createCommentVNode as Z, createElementVNode as F, renderSlot as pe, createTextVNode as ve, createVNode as ye } from "vue";
+import { defineComponent as S, ref as T, onMounted as H, h as x, computed as O, createElementBlock as N, openBlock as A, normalizeClass as k, toDisplayString as V, watch as J, inject as D, provide as L, nextTick as fe, resolveComponent as de, createCommentVNode as Z, createElementVNode as F, renderSlot as pe, createTextVNode as ve, createVNode as ye } from "vue";
 const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)+([A-Za-z0-9-~\/])+$/, G = S({
   name: "JsonString",
   props: {
@@ -50,7 +50,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
     };
   }
 }), he = {
-  class: /* @__PURE__ */ w(["jv-item", "jv-undefined"])
+  class: /* @__PURE__ */ k(["jv-item", "jv-undefined"])
 }, ge = /* @__PURE__ */ S({
   __name: "json-undefined",
   props: {
@@ -80,11 +80,11 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
   setup(e) {
     const h = e, c = O(() => Number.isInteger(h.jsonValue));
     return (p, v) => (A(), N("span", {
-      class: w(["jv-item", "jv-number", c.value ? "jv-number-integer" : "jv-number-float"])
+      class: k(["jv-item", "jv-number", c.value ? "jv-number-integer" : "jv-number-float"])
     }, V(e.jsonValue.toString()), 3));
   }
 }), je = {
-  class: /* @__PURE__ */ w(["jv-item", "jv-boolean"])
+  class: /* @__PURE__ */ k(["jv-item", "jv-boolean"])
 }, xe = /* @__PURE__ */ S({
   __name: "json-boolean",
   props: {
@@ -143,8 +143,8 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
       if (!e.sort)
         return c.value;
       const r = Object.keys(c.value).sort(), o = {};
-      return r.forEach((l) => {
-        o[l] = c.value[l];
+      return r.forEach((s) => {
+        o[s] = c.value[s];
       }), o;
     }), n = () => {
       if (p)
@@ -162,14 +162,14 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
       if (r.push(x("span", { class: ["jv-item", "jv-object"] }, "{")), e.expand) {
         for (const o in u.value)
           if (u.value.hasOwnProperty(o)) {
-            const l = u.value[o];
+            const s = u.value[o];
             r.push(x(K, {
               key: o,
               // style: { display: !props.expand ? 'none' : undefined }, // Redundant
               sort: e.sort,
               keyName: o,
               depth: e.depth + 1,
-              value: l,
+              value: s,
               previewMode: e.previewMode
             }));
           }
@@ -267,7 +267,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
       } }, n);
     };
   }
-}), Te = ["title"], ke = /* @__PURE__ */ S({
+}), Te = ["title"], we = /* @__PURE__ */ S({
   __name: "json-function",
   props: {
     /** The Function object to represent. */
@@ -278,12 +278,12 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
   },
   setup(e) {
     return (h, c) => (A(), N("span", {
-      class: w(["jv-item", "jv-function"]),
+      class: k(["jv-item", "jv-function"]),
       title: e.jsonValue.toString()
     }, " <function> ", 8, Te));
   }
-}), we = {
-  class: /* @__PURE__ */ w(["jv-item", "jv-string"])
+}), ke = {
+  class: /* @__PURE__ */ k(["jv-item", "jv-string"])
 }, Se = /* @__PURE__ */ S({
   __name: "json-date",
   props: {
@@ -295,10 +295,10 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
   },
   setup(e) {
     const h = e, c = D("timeformat", (v) => v.toLocaleString()), p = O(() => c(h.jsonValue));
-    return (v, u) => (A(), N("span", we, ' "' + V(p.value) + '" ', 1));
+    return (v, u) => (A(), N("span", ke, ' "' + V(p.value) + '" ', 1));
   }
 }), Ce = {
-  class: /* @__PURE__ */ w(["jv-item", "jv-regexp"])
+  class: /* @__PURE__ */ k(["jv-item", "jv-regexp"])
 }, Ne = /* @__PURE__ */ S({
   __name: "json-regexp",
   props: {
@@ -352,7 +352,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
       u.value = e.previewMode || e.depth < p;
     });
     const r = () => {
-      if (console.log("Toggle called for:", e.keyName, "Current expand state:", u.value), u.value = !u.value, c({
+      if (u.value = !u.value, c({
         keyName: e.keyName,
         value: e.value,
         depth: e.depth,
@@ -362,14 +362,14 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
         try {
           n.dispatchEvent(new Event("resized"));
         } catch {
-          const l = document.createEvent("Event");
-          l.initEvent("resized", !0, !1), n.dispatchEvent(l);
+          const s = document.createEvent("Event");
+          s.initEvent("resized", !0, !1), n.dispatchEvent(s);
         }
     };
     return () => {
       const o = [];
-      let l;
-      e.value === null || e.value === void 0 ? l = ge : Array.isArray(e.value) ? l = Ee : e.value instanceof Date ? l = Se : e.value instanceof RegExp ? l = Ne : typeof e.value == "object" ? l = _e : typeof e.value == "number" ? l = be : typeof e.value == "string" ? l = G : typeof e.value == "boolean" ? l = xe : typeof e.value == "function" ? l = ke : l = G;
+      let s;
+      e.value === null || e.value === void 0 ? s = ge : Array.isArray(e.value) ? s = Ee : e.value instanceof Date ? s = Se : e.value instanceof RegExp ? s = Ne : typeof e.value == "object" ? s = _e : typeof e.value == "number" ? s = be : typeof e.value == "string" ? s = G : typeof e.value == "boolean" ? s = xe : typeof e.value == "function" ? s = we : s = G;
       const _ = e.value && (Array.isArray(e.value) || typeof e.value == "object" && !(e.value instanceof Date) && // Exclude Date
       !(e.value instanceof RegExp));
       return !e.previewMode && _ && !(e.value instanceof RegExp) && o.push(
@@ -391,7 +391,7 @@ const me = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)
         }, `${e.keyName}:`)
         // Text content as children
       ), o.push(
-        x(l, {
+        x(s, {
           class: "jv-push",
           // 'jv-push' is a string
           jsonValue: e.value,
@@ -462,7 +462,7 @@ function Ve() {
                     );
                   }
                 });
-                var r = t(279), o = /* @__PURE__ */ t.n(r), l = t(370), _ = /* @__PURE__ */ t.n(l), b = t(817), E = /* @__PURE__ */ t.n(b);
+                var r = t(279), o = /* @__PURE__ */ t.n(r), s = t(370), _ = /* @__PURE__ */ t.n(s), b = t(817), E = /* @__PURE__ */ t.n(b);
                 function g(d) {
                   try {
                     return document.execCommand(d);
@@ -477,19 +477,19 @@ function Ve() {
                 function C(d) {
                   var i = document.documentElement.getAttribute("dir") === "rtl", a = document.createElement("textarea");
                   a.style.fontSize = "12pt", a.style.border = "0", a.style.padding = "0", a.style.margin = "0", a.style.position = "absolute", a.style[i ? "right" : "left"] = "-9999px";
-                  var s = window.pageYOffset || document.documentElement.scrollTop;
-                  return a.style.top = "".concat(s, "px"), a.setAttribute("readonly", ""), a.value = d, a;
+                  var l = window.pageYOffset || document.documentElement.scrollTop;
+                  return a.style.top = "".concat(l, "px"), a.setAttribute("readonly", ""), a.value = d, a;
                 }
                 var U = function(i, a) {
-                  var s = C(i);
-                  a.container.appendChild(s);
-                  var f = E()(s);
-                  return g("copy"), s.remove(), f;
+                  var l = C(i);
+                  a.container.appendChild(l);
+                  var f = E()(l);
+                  return g("copy"), l.remove(), f;
                 }, W = function(i) {
                   var a = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {
                     container: document.body
-                  }, s = "";
-                  return typeof i == "string" ? s = U(i, a) : i instanceof HTMLInputElement && !["text", "search", "url", "tel", "password"].includes(i == null ? void 0 : i.type) ? s = U(i.value, a) : (s = E()(i), g("copy")), s;
+                  }, l = "";
+                  return typeof i == "string" ? l = U(i, a) : i instanceof HTMLInputElement && !["text", "search", "url", "tel", "password"].includes(i == null ? void 0 : i.type) ? l = U(i.value, a) : (l = E()(i), g("copy")), l;
                 }, z = W;
                 function $(d) {
                   "@babel/helpers - typeof";
@@ -500,23 +500,23 @@ function Ve() {
                   }, $(d);
                 }
                 var ee = function() {
-                  var i = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, a = i.action, s = a === void 0 ? "copy" : a, f = i.container, m = i.target, k = i.text;
-                  if (s !== "copy" && s !== "cut")
+                  var i = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, a = i.action, l = a === void 0 ? "copy" : a, f = i.container, m = i.target, w = i.text;
+                  if (l !== "copy" && l !== "cut")
                     throw new Error('Invalid "action" value, use either "copy" or "cut"');
                   if (m !== void 0)
                     if (m && $(m) === "object" && m.nodeType === 1) {
-                      if (s === "copy" && m.hasAttribute("disabled"))
+                      if (l === "copy" && m.hasAttribute("disabled"))
                         throw new Error('Invalid "target" attribute. Please use "readonly" instead of "disabled" attribute');
-                      if (s === "cut" && (m.hasAttribute("readonly") || m.hasAttribute("disabled")))
+                      if (l === "cut" && (m.hasAttribute("readonly") || m.hasAttribute("disabled")))
                         throw new Error(`Invalid "target" attribute. You can't cut text from elements with "readonly" or "disabled" attributes`);
                     } else
                       throw new Error('Invalid "target" value, use a valid Element');
-                  if (k)
-                    return z(k, {
+                  if (w)
+                    return z(w, {
                       container: f
                     });
                   if (m)
-                    return s === "cut" ? j(m) : z(m, {
+                    return l === "cut" ? j(m) : z(m, {
                       container: f
                     });
                 }, te = ee;
@@ -534,8 +534,8 @@ function Ve() {
                 }
                 function Y(d, i) {
                   for (var a = 0; a < i.length; a++) {
-                    var s = i[a];
-                    s.enumerable = s.enumerable || !1, s.configurable = !0, "value" in s && (s.writable = !0), Object.defineProperty(d, s.key, s);
+                    var l = i[a];
+                    l.enumerable = l.enumerable || !1, l.configurable = !0, "value" in l && (l.writable = !0), Object.defineProperty(d, l.key, l);
                   }
                 }
                 function oe(d, i, a) {
@@ -547,19 +547,19 @@ function Ve() {
                   d.prototype = Object.create(i && i.prototype, { constructor: { value: d, writable: !0, configurable: !0 } }), i && I(d, i);
                 }
                 function I(d, i) {
-                  return I = Object.setPrototypeOf || function(s, f) {
-                    return s.__proto__ = f, s;
+                  return I = Object.setPrototypeOf || function(l, f) {
+                    return l.__proto__ = f, l;
                   }, I(d, i);
                 }
                 function ae(d) {
-                  var i = le();
+                  var i = se();
                   return function() {
-                    var s = R(d), f;
+                    var l = R(d), f;
                     if (i) {
                       var m = R(this).constructor;
-                      f = Reflect.construct(s, arguments, m);
+                      f = Reflect.construct(l, arguments, m);
                     } else
-                      f = s.apply(this, arguments);
+                      f = l.apply(this, arguments);
                     return ie(this, f);
                   };
                 }
@@ -571,7 +571,7 @@ function Ve() {
                     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
                   return d;
                 }
-                function le() {
+                function se() {
                   if (typeof Reflect > "u" || !Reflect.construct || Reflect.construct.sham) return !1;
                   if (typeof Proxy == "function") return !0;
                   try {
@@ -591,12 +591,12 @@ function Ve() {
                   if (i.hasAttribute(a))
                     return i.getAttribute(a);
                 }
-                var se = /* @__PURE__ */ function(d) {
+                var le = /* @__PURE__ */ function(d) {
                   re(a, d);
                   var i = ae(a);
-                  function a(s, f) {
+                  function a(l, f) {
                     var m;
-                    return ne(this, a), m = i.call(this), m.resolveOptions(f), m.listenClick(s), m;
+                    return ne(this, a), m = i.call(this), m.resolveOptions(f), m.listenClick(l), m;
                   }
                   return oe(a, [{
                     key: "resolveOptions",
@@ -612,8 +612,8 @@ function Ve() {
                     key: "listenClick",
                     value: function(f) {
                       var m = this;
-                      this.listener = _()(f, "click", function(k) {
-                        return m.onClick(k);
+                      this.listener = _()(f, "click", function(w) {
+                        return m.onClick(w);
                       });
                     }
                     /**
@@ -623,14 +623,14 @@ function Ve() {
                   }, {
                     key: "onClick",
                     value: function(f) {
-                      var m = f.delegateTarget || f.currentTarget, k = this.action(m) || "copy", B = te({
-                        action: k,
+                      var m = f.delegateTarget || f.currentTarget, w = this.action(m) || "copy", B = te({
+                        action: w,
                         container: this.container,
                         target: this.target(m),
                         text: this.text(m)
                       });
                       this.emit(B ? "success" : "error", {
-                        action: k,
+                        action: w,
                         text: B,
                         trigger: m,
                         clearSelection: function() {
@@ -707,13 +707,13 @@ function Ve() {
                   }, {
                     key: "isSupported",
                     value: function() {
-                      var f = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : ["copy", "cut"], m = typeof f == "string" ? [f] : f, k = !!document.queryCommandSupported;
+                      var f = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : ["copy", "cut"], m = typeof f == "string" ? [f] : f, w = !!document.queryCommandSupported;
                       return m.forEach(function(B) {
-                        k = k && !!document.queryCommandSupported(B);
-                      }), k;
+                        w = w && !!document.queryCommandSupported(B);
+                      }), w;
                     }
                   }]), a;
-                }(o()), ce = se;
+                }(o()), ce = le;
               }
             ),
             /***/
@@ -725,9 +725,9 @@ function Ve() {
                   var t = Element.prototype;
                   t.matches = t.matchesSelector || t.mozMatchesSelector || t.msMatchesSelector || t.oMatchesSelector || t.webkitMatchesSelector;
                 }
-                function r(o, l) {
+                function r(o, s) {
                   for (; o && o.nodeType !== n; ) {
-                    if (typeof o.matches == "function" && o.matches(l))
+                    if (typeof o.matches == "function" && o.matches(s))
                       return o;
                     o = o.parentNode;
                   }
@@ -748,7 +748,7 @@ function Ve() {
                     }
                   };
                 }
-                function l(b, E, g, y, j) {
+                function s(b, E, g, y, j) {
                   return typeof b.addEventListener == "function" ? o.apply(null, arguments) : typeof g == "function" ? o.bind(null, document).apply(null, arguments) : (typeof b == "string" && (b = document.querySelectorAll(b)), Array.prototype.map.call(b, function(C) {
                     return o(C, E, g, y, j);
                   }));
@@ -758,7 +758,7 @@ function Ve() {
                     j.delegateTarget = r(j.target, E), j.delegateTarget && y.call(b, j);
                   };
                 }
-                u.exports = l;
+                u.exports = s;
               }
             ),
             /***/
@@ -783,7 +783,7 @@ function Ve() {
               /***/
               function(u, n, t) {
                 var r = t(879), o = t(438);
-                function l(g, y, j) {
+                function s(g, y, j) {
                   if (!g && !y && !j)
                     throw new Error("Missing required arguments");
                   if (!r.string(y))
@@ -819,7 +819,7 @@ function Ve() {
                 function E(g, y, j) {
                   return o(document.body, g, y, j);
                 }
-                u.exports = l;
+                u.exports = s;
               }
             ),
             /***/
@@ -835,8 +835,8 @@ function Ve() {
                     o || t.setAttribute("readonly", ""), t.select(), t.setSelectionRange(0, t.value.length), o || t.removeAttribute("readonly"), r = t.value;
                   } else {
                     t.hasAttribute("contenteditable") && t.focus();
-                    var l = window.getSelection(), _ = document.createRange();
-                    _.selectNodeContents(t), l.removeAllRanges(), l.addRange(_), r = l.toString();
+                    var s = window.getSelection(), _ = document.createRange();
+                    _.selectNodeContents(t), s.removeAllRanges(), s.addRange(_), r = s.toString();
                   }
                   return r;
                 }
@@ -851,30 +851,30 @@ function Ve() {
                 }
                 n.prototype = {
                   on: function(t, r, o) {
-                    var l = this.e || (this.e = {});
-                    return (l[t] || (l[t] = [])).push({
+                    var s = this.e || (this.e = {});
+                    return (s[t] || (s[t] = [])).push({
                       fn: r,
                       ctx: o
                     }), this;
                   },
                   once: function(t, r, o) {
-                    var l = this;
+                    var s = this;
                     function _() {
-                      l.off(t, _), r.apply(o, arguments);
+                      s.off(t, _), r.apply(o, arguments);
                     }
                     return _._ = r, this.on(t, _, o);
                   },
                   emit: function(t) {
-                    var r = [].slice.call(arguments, 1), o = ((this.e || (this.e = {}))[t] || []).slice(), l = 0, _ = o.length;
-                    for (l; l < _; l++)
-                      o[l].fn.apply(o[l].ctx, r);
+                    var r = [].slice.call(arguments, 1), o = ((this.e || (this.e = {}))[t] || []).slice(), s = 0, _ = o.length;
+                    for (s; s < _; s++)
+                      o[s].fn.apply(o[s].ctx, r);
                     return this;
                   },
                   off: function(t, r) {
-                    var o = this.e || (this.e = {}), l = o[t], _ = [];
-                    if (l && r)
-                      for (var b = 0, E = l.length; b < E; b++)
-                        l[b].fn !== r && l[b].fn._ !== r && _.push(l[b]);
+                    var o = this.e || (this.e = {}), s = o[t], _ = [];
+                    if (s && r)
+                      for (var b = 0, E = s.length; b < E; b++)
+                        s[b].fn !== r && s[b].fn._ !== r && _.push(s[b]);
                     return _.length ? o[t] = _ : delete o[t], this;
                   }
                 }, u.exports = n, u.exports.TinyEmitter = n;
@@ -1028,7 +1028,7 @@ const $e = /* @__PURE__ */ Ae(Me), Re = function(e, h) {
       } catch {
         return e.value;
       }
-    }), l = () => {
+    }), s = () => {
       b();
     }, b = Re(() => {
       fe(() => {
@@ -1042,9 +1042,9 @@ const $e = /* @__PURE__ */ Ae(Me), Re = function(e, h) {
       v.value = !v.value;
     };
     return J(() => e.value, () => {
-      l();
+      s();
     }), H(() => {
-      e.boxed && n.value && (l(), n.value.$el.addEventListener("resized", l, !0)), e.copyable && u.value && new $e(u.value, {
+      e.boxed && n.value && (s(), n.value.$el.addEventListener("resized", s, !0)), e.copyable && u.value && new $e(u.value, {
         text: () => JSON.stringify(o.value, null, 2)
         // Use parseValue for copying
       }).on("success", E);
@@ -1073,15 +1073,15 @@ const $e = /* @__PURE__ */ Ae(Me), Re = function(e, h) {
 function De(e, h, c, p, v, u) {
   const n = de("json-box");
   return A(), N("div", {
-    class: w(e.jvClass)
+    class: k(e.jvClass)
   }, [
     e.copyable ? (A(), N("div", {
       key: 0,
-      class: w(`jv-tooltip ${e.copyText.align || "right"}`)
+      class: k(`jv-tooltip ${e.copyText.align || "right"}`)
     }, [
       F("span", {
         ref: "clip",
-        class: w(["jv-button", { copied: e.copied }])
+        class: k(["jv-button", { copied: e.copied }])
       }, [
         pe(e.$slots, "copy", { copied: e.copied }, () => [
           ve(V(e.copied ? e.copyText.copiedText : e.copyText.copyText), 1)
@@ -1089,7 +1089,7 @@ function De(e, h, c, p, v, u) {
       ], 2)
     ], 2)) : Z("", !0),
     F("div", {
-      class: w(["jv-code", { open: e.expandCode, boxed: e.boxed }])
+      class: k(["jv-code", { open: e.expandCode, boxed: e.boxed }])
     }, [
       ye(n, {
         ref: "jsonBox",
@@ -1104,7 +1104,7 @@ function De(e, h, c, p, v, u) {
       onClick: h[0] || (h[0] = (...t) => e.toggleExpandCode && e.toggleExpandCode(...t))
     }, [
       F("span", {
-        class: w(["jv-toggle", { open: !!e.expandCode }])
+        class: k(["jv-toggle", { open: !!e.expandCode }])
       }, null, 2)
     ])) : Z("", !0)
   ], 2);

@@ -34,6 +34,7 @@ export interface onToggleProps {
     value: any,
     depth: number,
     expanded: boolean
+    path: string[]
 }
 
 // Define the type for the $refs.jsonBox

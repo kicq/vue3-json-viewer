@@ -80,7 +80,6 @@ export default defineComponent({
    
     // };
       const toggle = () => {
-        console.log("Toggle called for:", props.keyName, "Current expand state:", expand.value);
         expand.value = !expand.value;
         onToggle({
             keyName: props.keyName,

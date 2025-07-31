@@ -12,6 +12,7 @@ export interface onToggleProps {
     value: any;
     depth: number;
     expanded: boolean;
+    path: string[];
 }
 interface JsonBoxComponent extends InstanceType<typeof JsonBox> {
     $el: HTMLElement;

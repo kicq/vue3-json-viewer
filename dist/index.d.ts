@@ -1,5 +1,5 @@
 import { App } from 'vue';
-import { default as JsonViewer, JsonViewerProps } from './Components/json-viewer.vue';
+import { default as JsonViewer, JsonViewerProps, onToggleProps } from './Components/json-viewer.vue';
 /**
  * The main JsonViewer Vue component.
  * @see JsonViewerProps for a detailed list of available props.
@@ -20,7 +20,7 @@ export { JsonViewer };
 /**
  * Type definition for the props accepted by the {@link JsonViewer} component.
  */
-export type { JsonViewerProps };
+export type { JsonViewerProps, onToggleProps };
 /**
  * Default export for Vue plugin usage (e.g., `app.use(Vue3JsonViewer)`).
  */

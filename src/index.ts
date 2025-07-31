@@ -8,6 +8,7 @@
 import type { App } from 'vue'
 import JsonViewer from './Components/json-viewer.vue'
 import type { JsonViewerProps } from './Components/json-viewer.vue'
+import type { onToggleProps } from './Components/json-viewer.vue'
 
 /**
  * The main JsonViewer Vue component.
@@ -30,7 +31,7 @@ export { JsonViewer }
 /**
  * Type definition for the props accepted by the {@link JsonViewer} component.
  */
-export type { JsonViewerProps }
+export type { JsonViewerProps, onToggleProps }
 
 /**
  * Vue plugin install function.
