@@ -8,7 +8,7 @@
             </span>
         </div>
         <div class="jv-code" :class="{ open: expandCode, boxed }">
-            <json-box ref="jsonBox" :value="parseValue" :sort="sort" :preview-mode="previewMode" @expand="onExpand" @collapse="$emit('collapse', $event)" />
+            <json-box ref="jsonBox" :value="parseValue" :sort="sort" :preview-mode="previewMode" />
         </div>
         <div v-if="expandableCode && boxed" class="jv-more" @click="toggleExpandCode">
             <span class="jv-toggle" :class="{ open: !!expandCode }" />
@@ -27,6 +27,13 @@ interface CopyableOptions {
   copiedText?: string;
   timeout?: number;
   align?: 'left' | 'right';
+}
+
+interface onToggleProps {
+    keyName: string,
+    value: any,
+    depth: number,
+    expanded: boolean
 }
 
 // Define the type for the $refs.jsonBox
@@ -116,7 +123,7 @@ export default defineComponent({
       default: false,
     }
   },
-  emits: ["onKeyClick", "copied", "expand", "collapse"],
+    emits: ["onKeyClick", "copied", "onToggle"],
   /**
    * Setup function for the JsonViewer component.
    * @param props - The component's props.
@@ -145,10 +152,10 @@ export default defineComponent({
       emit("onKeyClick", keyName);
     });
 
-    const onExpand = (event: Event) => {
-        console.log('onExpand', event);
-      emit("expand", event);
-    };
+    provide("onToggle", (value: onToggleProps) => {
+        emit("onToggle", value);
+    });
+
 
     /** Computed CSS class for the main container. */
     const jvClass = computed(() => {
@@ -267,7 +274,6 @@ export default defineComponent({
       copyText,
       parseValue,
       toggleExpandCode,
-      onExpand,
       // Methods are already bound or don't need explicit exposure if not used in template
       // onResized, // only called internally
       // debResized, // only called internally

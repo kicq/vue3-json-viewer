@@ -69,8 +69,7 @@ declare const _default: import('vue').DefineComponent<{
     }>;
     parseValue: import('vue').ComputedRef<any>;
     toggleExpandCode: () => void;
-    onExpand: (event: Event) => void;
-}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, ("expand" | "collapse" | "onKeyClick" | "copied")[], "expand" | "collapse" | "onKeyClick" | "copied", import('vue').PublicProps, Readonly<{
+}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, ("onToggle" | "onKeyClick" | "copied")[], "onToggle" | "onKeyClick" | "copied", import('vue').PublicProps, Readonly<{
     value: any;
     expanded?: boolean | undefined;
     expandDepth?: number | undefined;
@@ -82,8 +81,7 @@ declare const _default: import('vue').DefineComponent<{
     previewMode?: boolean | undefined;
     parse?: boolean | undefined;
 }> & Readonly<{
-    onExpand?: ((...args: any[]) => any) | undefined;
-    onCollapse?: ((...args: any[]) => any) | undefined;
+    onOnToggle?: ((...args: any[]) => any) | undefined;
     onOnKeyClick?: ((...args: any[]) => any) | undefined;
     onCopied?: ((...args: any[]) => any) | undefined;
 }>, {
@@ -114,7 +112,7 @@ declare const _default: import('vue').DefineComponent<{
         previewMode: BooleanConstructor;
     }>, () => import('vue').VNode<import('vue').RendererNode, import('vue').RendererElement, {
         [key: string]: any;
-    }>, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, ("expand" | "collapse")[], "expand" | "collapse", import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+    }>, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
         value: {
             type: PropType<any>;
             default: null;
@@ -129,10 +127,7 @@ declare const _default: import('vue').DefineComponent<{
             default: number;
         };
         previewMode: BooleanConstructor;
-    }>> & Readonly<{
-        onExpand?: ((...args: any[]) => any) | undefined;
-        onCollapse?: ((...args: any[]) => any) | undefined;
-    }>, {
+    }>> & Readonly<{}>, {
         sort: boolean;
         previewMode: boolean;
         keyName: string;

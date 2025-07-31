@@ -41,17 +41,12 @@ export default defineComponent({
     /** Whether preview mode is enabled. Passed down from JsonViewer. */
     previewMode: Boolean,
   },
-  emits: [
-    /** Event emitted when the component is expanded. */
-    "expand",
-    /** Event emitted when the component is collapsed. */
-    "collapse",
-  ],
   /**
    * Setup function for the JsonBox component.
    * @param props - The component's props.
    */
   setup(props, ctx) {
+    const onToggle = inject<Function>("onToggle", () => { });
     /** Injected from JsonViewer: The maximum depth to auto-expand. */
     const expandDepth = inject<number>("expandDepth", Infinity);
     /** Injected from JsonViewer: Function to call when a key is clicked. */
@@ -72,46 +67,28 @@ export default defineComponent({
      * Also dispatches a 'resized' event to notify parent components (like JsonViewer)
      * that content size might have changed, useful for recalculating layout or visibility.
      */
-    // const toggle = () => {
-    //   expand.value = !expand.value;
-    //   if (currentEl) {
-    //     try {
-    //       currentEl.dispatchEvent(new Event("resized"));
-    //     } catch (e) {
-    //       // Fallback for older browsers (IE) that don't support new Event()
-    //       const evt = document.createEvent("Event");
-    //       evt.initEvent("resized", true, false);
-    //       currentEl.dispatchEvent(evt);
-    //     }
-    //   }
-
+   
     // };
-      // ...existing code...
       const toggle = () => {
         console.log("Toggle called for:", props.keyName, "Current expand state:", expand.value);
-          expand.value = !expand.value;
-          // $emit Vue-событие для раскрытия/скрытия
-          const eventName = expand.value ? "expand" : "collapse";
-          console.log("Emitting", eventName);
-          ctx.emit(eventName, {
-              keyName: props.keyName,
-              value: props.value,
-              depth: props.depth
-          });
-          console.log("Emitting2", eventName);
+        expand.value = !expand.value;
+        onToggle({
+            keyName: props.keyName,
+            value: props.value,
+            depth: props.depth,
+            expanded: expand.value
+        });
 
-
-          if (currentEl) {
-              try {
-                  currentEl.dispatchEvent(new Event("resized"));
-              } catch (e) {
-                  const evt = document.createEvent("Event");
-                  evt.initEvent("resized", true, false);
-                  currentEl.dispatchEvent(evt);
-              }
-          }
+        if (currentEl) {
+            try {
+                currentEl.dispatchEvent(new Event("resized"));
+            } catch (e) {
+                const evt = document.createEvent("Event");
+                evt.initEvent("resized", true, false);
+                currentEl.dispatchEvent(evt);
+            }
+        }
       };
-      // ...existing code...
 
     /**
      * The render function for JsonBox.
